@@ -1862,3 +1862,8 @@ section,
       }
     
     #map { height: 60vh; width: 100%; }
+
+    #zoom{
+      position: absolute;
+      top:  25px;
+    }
