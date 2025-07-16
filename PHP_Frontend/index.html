@@ -24,6 +24,10 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Leaflet Control Geocoder CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
@@ -63,7 +67,7 @@
             <li><a href="#services">Service Booking</a></li>
             <li><a href="#portfolio">Products</a></li>
             <li><a href="#team">Team</a></li>
-           
+            <li><a href="#faq">F.A.Qs</a></li>
             <li><a href="#contact">General Enquiries</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
@@ -259,7 +263,7 @@
       </div><!-- End Section Title -->
 
       <div class="container">
-    <div class="row gy-4">
+    
         
        <div class="col-lg-12">
             <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
@@ -271,10 +275,10 @@
                   >
                 </div>
 
-                <d class="col-md-6">
+                <div class="col-md-6">
                   <label for="email-field" class="pb-2">Your Telephone</label>
                   <input type="tel" class="form-control" name="tel" id="tel-field" required pattern="[0-9]{10}" >
-                </d\iv>
+                </div>
 
                 <div class="col-md-6">
                   <label for="email-field" class="pb-2">Your Email</label>
@@ -297,7 +301,6 @@
                   <textarea class="form-control" name="message" placeholder="Any Message (Optional)" rows="6" id="message-field"  ></textarea>
                 </div>
  
- 
                 <div class="col-md-6">
                   <label for="email-field" class="pb-2">Date</label>
                   <input type="date" class="form-control" name="date" id="date-field" required >
@@ -313,17 +316,14 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit" name="booknow"  >Book Now</button>
+                  <button type="submit" name="booknow"  class="book-btn" >Book Now</button>
                 </div>
 
               </div>
             </form>
           </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
+</div>
+        
     </section><!-- /Services Section -->
 
     <!-- Testimonials Section -->
@@ -522,32 +522,32 @@
             </div><!-- End product Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/images (1).jfif" class="img-fluid" alt="">
+              <img src="assets/img/masonry-portfolio/palmoil20L.webp" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/images (1).jfif" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <h3 title="Price" class="details-link"><sup>&#8373</sup>0</h3>
+                <h4>20L</h4>
+                <p>palm oil</p>
+                <a href="assets/img/masonry-portfolio/palmoil20L.webp" title="20L" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <h3 title="Price" class="details-link"><sup>&#8373</sup> 800</h3>
               </div>
             </div><!-- End product Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+              <img src="assets/img/masonry-portfolio/drum2.avif" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <h3 title="Price" class="details-link"><sup>&#8373</sup>0</h3>
+                <h4>500L</h4>
+                <p>Drum</p>
+                <a href="assets/img/masonry-portfolio/drum2.avif" title="drum" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <h3 title="Price" class="details-link"><sup>&#8373</sup>1500</h3>
               </div>
             </div><!-- End product Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+              <img src="assets/img/masonry-portfolio/palm-oil.webp" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Branding 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <h3 title="Price" class="details-link"><sup>&#8373</sup>0</h3>
+                <h4>1.5L</h4>
+                <p>pure and natural</p>
+                <a href="assets/img/masonry-portfolio/palm-oil.webp" title="1.5L" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <h3 title="Price" class="details-link"> <sup>&#8373</sup>50</h3>
               </div>
             </div><!-- End product Item -->
 
@@ -671,7 +671,7 @@
               <div class="faq-item faq-active">
                 <h3>What type of palm oil do you sell?</h3>
                 <div class="faq-content">
-                  <p> We offer premium-quality red palm oil in retail and bulk quantities.Sizes range from 1L to 50L drums, with options for wholesale packaging.</p>
+                  <p> We offer premium-quality red palm oil in retail and bulk quantities. Sizes range from 1L to 50L drums, with options for wholesale packaging.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -764,9 +764,12 @@
                   <h3>Email Us</h3>
                   <p>nanamonfarmsltd66@gmail.com</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <button id="tracker-btn">Start Tracking</button>
+      
+              <div id="map" ></div>
+              <!-- End Info Item -->
             </div>
           </div>
 
@@ -896,6 +899,12 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- Leaflet Control Geocoder JS -->
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<script src="assets/js/map.js" ></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
