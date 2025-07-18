@@ -61,7 +61,7 @@
         </div><!-- End Section Title -->
         <div class="container">
             <div class="col-lg-12">
-                <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                <form action="../PHP_Backend/add_booking.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                     <div class="row gy-4">
                         <div class="col-md-6">
                             <label for="name-field" class="pb-2">Your Name</label>

@@ -99,7 +99,7 @@
                 </div>
               </div>
 
-              <button id="tracker-btn">Start Tracking</button>
+              <button id="tracker-btn" onclick="toggleTracking()" >Start Tracking</button>
       
               <div id="map" ></div>
               <!-- End Info Item -->
@@ -107,7 +107,7 @@
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="../PHP_Backend/add_enquires.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <h3><strong>Send Us an Enquiry</strong></h3>
