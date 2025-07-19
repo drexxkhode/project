@@ -10,6 +10,8 @@ require_once __DIR__ . '/PHPMailer/PHPMailer/src/PHPMailer.php';
 require_once __DIR__ . '/PHPMailer/PHPMailer/src/SMTP.php';
 
 require_once __DIR__ . '/vendor/autoload.php'; 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 
 
@@ -24,9 +26,9 @@ $mail->SMTPSecure = 'ssl';
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "devhub66@gmail.com";
-$mail->Password = "rkxgvepehchfhfhy";
-$mail->From ="devhub66@gmail.com";
+$mail->Username = $ENV['EMAIL_USER'];
+$mail->Password = $ENV['EMAIL_PASSWORD'];
+$mail->From = $ENV['EMAIL_USER'];
 $mail->FromName = "Nanamon Farms Ltd.";
 
 
