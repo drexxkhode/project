@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - BizLand Bootstrap Template</title>
+  <title>nanamonfarmsltd.com - Contact Us </title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- Links -->
@@ -99,7 +99,7 @@
                 </div>
               </div>
 
-              <button id="tracker-btn" onchange="toggleTracking()" >Start Tracking</button>
+              <button id="tracker-btn" onclick="toggleTracking()" >Start Tracking</button>
       
               <div id="map" ></div>
               <!-- End Info Item -->

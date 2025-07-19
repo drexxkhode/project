@@ -1,6 +1,6 @@
 
 <?php 
-
+require_once './PHP_Backend/db.php'; // Include your database connection file
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -12,11 +12,21 @@ require_once __DIR__ . '/PHPMailer/PHPMailer/src/SMTP.php';
 require_once __DIR__ . '/vendor/autoload.php'; 
 
 
-
-$name = $_POST['name'];
+$id = $_POST['id'];
 $email = $_POST['email'];
+$name = $_POST['name'];
 $message = $_POST['message'];
+// update status to 'replied' in the database
+$stmt= $con->prepare("UPDATE enquiries SET status='replied' WHERE id=?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
 
+// inserting the reply message into the replies table
+$query=$con->prepare("INSERT INTO `replies` (clients_id, `email`, `name`, `replied_message`) VALUES (?,?,?,?)");
+$query->bind_param("isss", $id, $email,$name, $message);
+$query->execute();
+
+// SMTP settings
 $mail = new PHPMailer();
 $mail->IsSMTP();
 $mail->SMTPAuth = true;

@@ -1,3 +1,7 @@
+<?php
+require_once 'db.php'; // Your DB connection file
+require_once 'auth/authenticate.php'; // Ensure the user is authenticated
+?>
 <!DOCTYPE html>
 
 <html
@@ -15,7 +19,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Nanamonfarmsltd - Products </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>

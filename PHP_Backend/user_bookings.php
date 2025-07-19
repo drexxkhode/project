@@ -1,5 +1,6 @@
 <?php
 require_once 'db.php';
+require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 
 ?>
 
@@ -19,7 +20,7 @@ require_once 'db.php';
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title> Nanamonfarmsltd - Service Booking </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
@@ -67,17 +68,19 @@ require_once 'db.php';
                           <th>Date</th>
                           <th>Time</th>
                           <th>In</th>
+                          <th>Status</th>
                           <th>Actions</th>
                         </tr>
                       </thead>
 
                       <tbody>
-               <?php
+            <?php
 $query = "SELECT * FROM bookings";
 $result = $con->query($query); 
 
 if ($result && $result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
+    $status = $row["status"]; // don't sanitize for logic
     echo "<tr>";
     echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
@@ -88,13 +91,22 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["booking_date"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["booking_time"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
-    echo "<td><a class='btn btn-primary' href='view_bookings.php?id=" . htmlspecialchars($row["id"]) . "'>reply</a></td>";
+    echo "<td>" . htmlspecialchars($status) . "</td>";
+    
+    echo "<td>";
+    if ($status !== 'replied') {
+      echo "<a class='btn btn-primary' href='view_bookings.php?id=" . urlencode($row["id"]) . "'>Reply</a>";
+    } else {
+      echo "<em>Replied</em>";
+    }
+    echo "</td>";
     echo "</tr>";
   }
 } else {
-  echo '<tr><td colspan="6" class="text-center">No records found.</td></tr>';
+  echo '<tr><td colspan="11" class="text-center">No records found.</td></tr>';
 }
 ?>
+
 
                       </tbody>
                     </table>

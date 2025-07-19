@@ -21,7 +21,7 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd - Enquiries </title>
+    <title> Nanamonfarmsltd - Replied Messages </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
@@ -54,55 +54,43 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 
              <!-- Bordered Table -->
               <div class="card">
-                <h5 class="card-header">Enquiries</h5>
+                <h5 class="card-header">Replied Messages</h5>
                 <div class="card-body">
                   <div class="table-responsive text-nowrap">
                     <table class="table table-bordered">
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Name</th>
+                          <th>Client ID</th>
                           <th>Email</th>
-                          <th>Subject</th>
+                          <th>Name</th>
                           <th>Message</th>
-                          <th>Time</th>
-                          <th>Status</th>
-                          <th>Action</th>
+                          <th>Date</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
 
                       <tbody>
-               <?php
-$query = "SELECT * FROM enquiries";
+            <?php
+$query = "SELECT * FROM replies";
 $result = $con->query($query); 
-
 
 if ($result && $result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
-    $status = $row["status"]; // don't sanitize for logic
     echo "<tr>";
     echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["clients_id"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["subject"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["message"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
-    echo "<td>" . htmlspecialchars($status) . "</td>";
-    
-    echo "<td>";
-    if ($status !== 'replied') {
-      echo "<a class='btn btn-primary' href='view_enquiries.php?id=" . urlencode($row["id"]) . "'>Reply</a>";
-    } else {
-      echo "<em>Replied</em>";
-    }
-    echo "</td>";
+    echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["replied_message"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["replied_at"]) . "</td>"; 
     echo "</tr>";
-  } 
   }
-else {
+} else {
   echo '<tr><td colspan="6" class="text-center">No records found.</td></tr>';
 }
 ?>
+
 
                       </tbody>
                     </table>

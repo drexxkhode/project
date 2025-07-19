@@ -1,5 +1,5 @@
 <?php
-// Fetch user from DB using PHP only (no JavaScript)
+require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 require_once 'db.php'; // Your DB connection file
 
 $user = [
@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
   <meta charset="utf-8" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-  <title>View message and reply</title>
+  <title>Nanamonfarmsltd - Reply Bookings </title>
 
   <?php include_once('partials/links.php'); ?>
   <style>
@@ -129,6 +129,7 @@ if (isset($_GET['id'])) {
       </div>
        <div>
         <form action="../bookings_mail.php" method="POST">
+          <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
           <input type="hidden" name="name" value="<?= htmlspecialchars($user['name']) ?>">
           <input type="hidden" name="email" value="<?= htmlspecialchars($user['email']) ?>">
           <textarea class="form-control" name="message" rows="6" placeholder="Reply to the user..." required></textarea><br>

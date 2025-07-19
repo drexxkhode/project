@@ -1,79 +1,41 @@
+<?php
+// inbox.php
 
-<?php 
+// Gmail IMAP config
+$hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
+$username = 'devhub66@gmail.com'; // Replace with your Gmail
+$password = 'rkxgvepehchfhfhy'; // Use App Password
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+// Connect to Gmail
+$inbox = imap_open($hostname, $username, $password) or die('IMAP connection failed: ' . imap_last_error());
 
-require_once __DIR__ . '/PHPMailer/PHPMailer/src/Exception.php';
-require_once __DIR__ . '/PHPMailer/PHPMailer/src/PHPMailer.php';
-require_once __DIR__ . '/PHPMailer/PHPMailer/src/SMTP.php';
+// Search for replies related to your auto-reply subject
+$emails = imap_search($inbox, 'ALL ');
 
-require_once __DIR__ . '/vendor/autoload.php'; 
+echo "<h2>Client Replies to Nanamon Farms</h2>";
+echo "<hr>";
 
+if ($emails) {
+    rsort($emails); // Newest first
 
+    foreach ($emails as $email_number) {
+        $overview = imap_fetch_overview($inbox, $email_number, 0)[0];
+        $message = imap_fetchbody($inbox, $email_number, 1);
+        $subject = htmlspecialchars($overview->subject);
+        $from = htmlspecialchars($overview->from);
+        $date = htmlspecialchars($overview->date);
+        $body = nl2br(htmlentities($message));
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-
-$mail = new PHPMailer();
-$mail->IsSMTP();
-$mail->SMTPAuth = true;
-$mail->SMTPSecure = 'ssl';
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
-$mail->IsHTML(true);
-$mail->Username = "devhub66@gmail.com";
-$mail->Password = "rkxgvepehchfhfhy";
-$mail->From ="devhub66@gmail.com";
-$mail->FromName = "Nanamon Farms Ltd.";
-
-
-
-$mail->Subject = "Reply from Nanamon Farms Ltd.";
-$mail->Body = "
- <br/> <br/>
-<div style='width:70%'>
-<p>Hello <strong>$name</strong>,
-<p>$message</p>
-</div>
-<br/>
-<br/>
-Thank you!!
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<br/>
-
-<b>Nanamon Farms Limited © Tech.
-                 <b/>
-
-<footer>
-<hr/>
-For further enquiries, kindly contact Nanamon Farms Ltd via: <br/>
-Telephone(MTN): +233 (0) 59 703 0141 <br/>
-Email: info@centralmigrationgrace.com <br/>
-Website: www.nanamonfarmsltd.com
-<hr/>
-<a><i class='fa fa-pen'></i></a>
-</footer>
-"
-
-;
-
-$mail->addAddress($email,$name);
-
-if(!$mail->Send())
-{
-    echo "Mailer Error: " . $mail->ErrorInfo;
-}
-else
-{
-    echo "Message has been sent";
+        echo "<div style='border:1px solid #ccc; padding:10px; margin-bottom:15px'>";
+        echo "<strong>From:</strong> $from<br>";
+        echo "<strong>Subject:</strong> $subject<br>";
+        echo "<strong>Date:</strong> $date<br><br>";
+        echo "<div style='background:#f9f9f9; padding:10px'>$body</div>";
+        echo "</div>";
+    }
+} else {
+    echo "<p><em>No client replies found.</em></p>";
 }
 
+imap_close($inbox);
+?>

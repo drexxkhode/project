@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - BizLand Bootstrap Template</title>
+    <title> nanamonfarmsltd.com - Service </title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <!-- Links -->
