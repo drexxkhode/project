@@ -22,8 +22,7 @@
 
 <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css" />
 
-<!-- Page CSS -->
-
+<link rel="stylesheet" href="assets/css/card.css">
 <!-- Helpers -->
 <script src="assets/vendor/js/helpers.js"></script>
 <script src="assets/js/config.js"></script>

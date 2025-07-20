@@ -17,23 +17,30 @@
 
           <ul class="menu-inner py-1">
              <!-- Admin-only links -->
-            <?php if ($_SESSION["role"] === "admin"): ?>
-            <!-- Dashboard -->
+                       <!-- Dashboard -->
             <li class="menu-item ">
               <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
-          <?php endif; ?>
+          
+<?php if ($_SESSION["role"] === "admin"): ?>
+
+          <!-- Layouts -->
+            <li class="menu-item">
+              <a href="report.php" class="menu-link ">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Reports & Finances</div>
+              </a>
+            </li>
+<?php endif; ?>
             <!-- Layouts -->
             <li class="menu-item">
               <a href="manage_products.php" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Manage Products</div>
               </a>
-           
-
             </li>
 
             <li class="menu-item">
@@ -58,13 +65,15 @@
                 <div data-i18n="Basic"> Replied Messages </div>
               </a>
             </li>
-            
+             <!-- Admin-only links -->
+            <?php if ($_SESSION["role"] === "admin"): ?>
             <li class="menu-item">
-              <a href="" class="menu-link ">
-                <i class="menu-icon tf-icons bx bx-box"></i>
-                <div data-i18n="User interface">User interface</div>
+              <a href="users_home.php" class="menu-link ">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="User interface">Access Control</div>
               </a>
               </li>
-
+              <?php endif; ?>
+            
            </ul>
         </aside>

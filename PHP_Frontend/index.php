@@ -70,7 +70,7 @@
             <h1>Welcome to <span>Nanamon Farms Ltd.</span></h1>
             <p>We are a rising leader in Ghana's palm oil industry.</p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">Get Started</a>
+              <a href="#stats" class="btn-get-started">Get Started</a>
               <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
             </div>
           </div>
@@ -78,9 +78,6 @@
       </div>
 
     </section><!-- /Hero Section -->
-
-     
-
     <!-- Stats Section -->
     <section id="stats" class="stats section">
 

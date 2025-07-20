@@ -34,50 +34,7 @@ if (isset($_GET['id'])) {
   <title>Nanamonfarmsltd - Reply Bookings </title>
 
   <?php include_once('partials/links.php'); ?>
-  <style>
-    .profile-card {
-      max-width: 900px;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-    .profile-header {
-      background-color: #0d6efd;
-      color: white;
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-    .profile-header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 5px solid white;
-      object-fit: cover;
-    }
-    .profile-body {
-      padding: 2rem;
-    }
-    .profile-body h5 {
-      font-weight: bold;
-    }
-    .info-label {
-      font-weight: 500;
-      color: #555;
-    }
-    .social-icons a {
-      margin-right: 15px;
-      color: #0d6efd;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #0a58ca;
-    }
-    #message-field{
-      width: 100%;height: 70px; padding: 10px;
-    }
-  </style>
+  
 </head>
 
 <body>

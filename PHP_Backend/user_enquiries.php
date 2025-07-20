@@ -85,13 +85,13 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["subject"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["message"]) . "</td>";
+    echo "<td>" . "<a class='btn btn-outline-primary' href='view_enquirie_msg.php?id=" . urlencode($row["id"]) . "'>view</a>" . "</td>";
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
     echo "<td>" . htmlspecialchars($status) . "</td>";
     
     echo "<td>";
     if ($status !== 'replied') {
-      echo "<a class='btn btn-primary' href='view_enquiries.php?id=" . urlencode($row["id"]) . "'>Reply</a>";
+      echo "<a class='btn btn-outline-primary' href='view_enquiries.php?id=" . urlencode($row["id"]) . "'>Reply</a>";
     } else {
       echo "<em>Replied</em>";
     }

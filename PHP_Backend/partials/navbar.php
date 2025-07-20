@@ -27,7 +27,12 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+<?php if (!empty($_SESSION['image_data']) && !empty($_SESSION['image_type'])): ?>
+  <img src="data:<?= htmlspecialchars($_SESSION["image_type"]) ?>;base64,<?= base64_encode($_SESSION['image_data']) ?>" alt="User Image" class="w-px-40 h-auto rounded-circle" >
+<?php else: ?>
+  <img src="assets/img/profile.avif" alt="Default Avatar" class="w-px-40 h-auto rounded-circle" > <!-- fallback image -->
+<?php endif; ?>
+
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -36,7 +41,13 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+    <div class="profile-header">
+  <?php if (!empty($_SESSION['image_data']) && !empty($_SESSION['image_type'])): ?>
+  <img src="data:<?= htmlspecialchars($_SESSION["image_type"]) ?>;base64,<?= base64_encode($_SESSION['image_data']) ?>" alt="User Image" class="w-px-40 h-auto rounded-circle" >
+<?php else: ?>
+  <img src="assets/img/profile.avif" alt="Default Avatar" class="w-px-40 h-auto rounded-circle" > <!-- fallback image -->
+<?php endif; ?>
+
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -44,22 +55,14 @@
                             <small class="text-muted"><?php echo $_SESSION["role"]; ?></small>
                           </div>
                         </div>
-                      </a>
+                    </a>
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
                     </li>
                    
                     </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
+
                     <li>
                       <a class="dropdown-item" href="logout.php">
                         <i class="bx bx-power-off me-2"></i>

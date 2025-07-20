@@ -73,17 +73,7 @@ if (isset($_GET['id'])) {
         
       </div>
       <div>
-       <textarea class="form-control"  rows="6" id="message-field" readonly ><?= htmlspecialchars($user['message']) ?></textarea><br>
-      </div>
-      <div>
-        <form action="../equiries_mail.php" method="POST">
-          <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
-          <input type="hidden" name="name" value="<?= htmlspecialchars($user['name']) ?>">
-          <input type="hidden" name="email" value="<?= htmlspecialchars($user['email']) ?>">
-          <textarea class="form-control" name="message" rows="6" placeholder="Reply to the user..." required></textarea><br>
-          <button type="submit" class="btn btn-primary">Send Mail</button>
-        </form>
-       
+       <textarea class="form-control"  rows="10" id="message-field" readonly ><?= htmlspecialchars($user['message']) ?></textarea><br>
       </div>
     </div>
   </div>

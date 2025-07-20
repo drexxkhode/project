@@ -15,6 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["loginBTN"])) {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION["username"] = $user["username"];
         $_SESSION["role"] = $user["role"];
+        $_SESSION["image_data"] = $user["image_data"];
+        $_SESSION["image_type"] = $user["image_type"];
+
     
         header("Location: ../index.php");
         exit();

@@ -21,7 +21,7 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd - Products </title>
+    <title> Nanamonfarmsltd - Replied Messages </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
@@ -62,10 +62,10 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Service Name</th>
-                          <th>Description</th>
-                          <th>Price</th>
-                          <th>image</th>
+                          <th>Username</th>
+                          <th>Fullname</th>
+                          <th>Email</th>
+                          <th>Role</th>
                           <th>Date Created</th>
                           <th>Actions</th>
                         </tr>
@@ -73,20 +73,17 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 
                       <tbody>
             <?php
-$query = "SELECT * FROM products";
+$query = "SELECT * FROM users";
 $result = $con->query($query); 
 
 if ($result && $result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["service_name"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["description"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["price"]) . "</td>";
-  $imageType = htmlspecialchars($row['image_type']);
-   $imageData = base64_encode($row['image']);
-echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width='60'></td>";
-
+    echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["fullname"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["role"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
     echo "<td>" . 
          "<a href='edit_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary'>Edit</a> " .
