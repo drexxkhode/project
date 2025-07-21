@@ -49,7 +49,7 @@ CREATE TABLE `bookings` (
 
 INSERT INTO `bookings` (`id`, `name`, `email`, `phone`, `service_type`, `message`, `booking_date`, `booking_time`, `status`, `created_at`) VALUES
 (1, 'Essien Philip', 'philipessien981@gmail.com', '0206817724', 'Palm Oil Retail Sales', '', '2025-07-18', '00:40:00', 'pending', '2025-07-18 00:41:04'),
-(11, 'Philip Essien', 'ithome735@gmail.com', '0594487547', 'Bulk Purchase & Delivery ', 'A downloadable sample project.\\r\\n\\r\\nThe same behavior using reCAPTCHA v3 (if you need bot protection).\\r\\n\\r\\nA reply notification email to admin too', '2025-07-19', '12:00:00', 'pending', '2025-07-19 12:58:17');
+(2, 'Philip Essien', 'ithome735@gmail.com', '0594487547', 'Bulk Purchase & Delivery ', 'A downloadable sample project.\\r\\n\\r\\nThe same behavior using reCAPTCHA v3 (if you need bot protection).\\r\\n\\r\\nA reply notification email to admin too', '2025-07-19', '12:00:00', 'pending', '2025-07-19 12:58:17');
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE `enquiries` (
 --
 
 INSERT INTO `enquiries` (`id`, `name`, `email`, `subject`, `message`, `created_at`, `status`) VALUES
-(1, 'Philip Essien', 'Philipessien981@gmail.com', 'request on products', 'How much is 10 gallons ?', '2025-07-17 22:03:31', 'pending'),
+(1, 'Philip Essien', 'Philipessien981@gmail.com', 'request on products', 'How much is 10 gallons ?', '2025-07-17 22:03:31', 'pending');
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,8 @@ CREATE TABLE `products` (
   `service_name` varchar(100) NOT NULL,
   `description` text DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `image` longblob DEFAULT NULL,
+   `image_type` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -124,6 +125,8 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('admin','support agent') DEFAULT NULL,
+  `image_data` longblob DEFAULT NULL,
+  `image_type` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -132,7 +135,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `fullname`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'kode', 'Philip Essien', 'philipessien981@gmail.com', '$2y$10$TrKk/tDzvsidwY2pRhCi8eS/GmNRTbQiRLYPSSwG5iNf.Ur2Th4sm', 'admin', '2025-07-17 15:10:54');
+(1, 'kode', 'Philip Essien', 'philipessien981@gmail.com', '1234', 'admin', '2025-07-17 15:10:54');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
