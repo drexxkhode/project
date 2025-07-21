@@ -86,7 +86,6 @@ if (isset($_GET['id'])) {
                 <input type="hidden" class="form-control" name="id" value="<?= htmlspecialchars($user['id']) ?>"><br>
             </div>
             <div class="col-md-12 " >
-                
                 <input type="text"  class="form-control" name="service_name" value="<?= htmlspecialchars($user['service_name']) ?>" required ><br>
             </div>
           <div class="col-md-12 " >

@@ -1,6 +1,30 @@
+<?php
+
+require_once '../PHP_Backend/db.php'; // Your DB connection file
+
+$user = [
+  'id' => '',
+  'service_name' => '',
+  'description' => '',
+  'price' => '',
+  'image' => '',
+  'image_type' => '',
+  'created_at' => ''
+];
+
+if (isset($_GET['id'])) {
+  $user_id = intval($_GET['id']);
+  $stmt = $con->prepare("SELECT id, service_name, description, price,image,image_type, created_at FROM products WHERE id = ?");
+  $stmt->bind_param("i", $user_id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -75,10 +99,10 @@ require_once('partials/links.php');
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="assets/img/masonry-portfolio/pm.jpg"  class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>1L</h4>
-                <p>Essential for every authentic African dish.</p>
-                <a href="assets/img/masonry-portfolio/pm.jpg" title="1L" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i id="zoom" class="bi bi-zoom-in"></i></a>
-                <h3  title="Price" class="details-link"><sup>&#8373</sup>30</h3>
+                <h4>1L<?= htmlspecialchars($user['service_name'] ) ?></h4>
+                <p>Essential for every authentic African dish. <?= htmlspecialchars($user['description'] ) ?> </p>
+                <a href="assets/img/masonry-portfolio/pm.jpg" title="<?= htmlspecialchars($user['service_name'] ) ?>" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i id="zoom" class="bi bi-zoom-in"></i></a>
+                <h3  title="Price" class="details-link"><sup>&#8373</sup><?= htmlspecialchars($user['price'] ) ?></h3>
               </div>
             </div><!-- End product Item -->
 
