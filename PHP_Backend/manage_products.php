@@ -58,7 +58,7 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
                 <div class="card-body">
                     <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-success" > Add User</button>
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="example1" >
                       <thead>
                         <tr>
                           <th>Id</th>

@@ -56,7 +56,7 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
                 <h5 class="card-header">Bookings</h5>
                 <div class="card-body">
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="example1"  >
                       <thead>
                         <tr>
                           <th>Id</th>
