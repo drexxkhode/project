@@ -1836,6 +1836,8 @@ section,
       font-weight: bold;
       cursor: pointer;
       padding: 8px 15px;
+       z-index: 999;
+       cursor: pointer;
 
       }
       .book-btn {
@@ -1860,10 +1862,5 @@ section,
       font-weight: bold;
       cursor: pointer;
       }
-    
-    #map { height: 60vh; width: 100%; }
-
-    #zoom{
-      position: absolute;
-      top:  25px;
-    }
+    #map { height: 70vh; width: 100%; }
+   

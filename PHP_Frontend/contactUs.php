@@ -99,7 +99,7 @@
                 </div>
               </div>
 
-              <button id="tracker-btn" onclick="toggleTracking()" >Start Tracking</button>
+              <button id="tracker-btn"  >Start Tracking</button>
       
               <div id="map" ></div>
               <!-- End Info Item -->
