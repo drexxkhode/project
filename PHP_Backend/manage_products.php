@@ -1,6 +1,6 @@
 <?php
 require_once 'db.php';
-require_once 'auth/authenticate.php'; // Ensure the user is authenticated
+require_once 'auth/authenticate.php'; // Ensure the product is authenticated
 
 
 ?>
@@ -18,7 +18,7 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+      content="width=device-width, initial-scale=1.0, product-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
     <title> Nanamonfarmsltd - Products </title>
@@ -54,9 +54,9 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 
              <!-- Bordered Table -->
               <div class="card">
-                <h5 class="card-header"> Users </h5>
+                <h5 class="card-header"> Products </h5>
                 <div class="card-body">
-                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-success" > Add User</button>
+                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-success" > Add product</button>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-bordered" id="example1" >
                       <thead>
@@ -89,8 +89,8 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
 
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
     echo "<td>" . 
-         "<a href='edit_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary'>Edit</a> " .
-         "<a href='delete_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-danger'>Delete</a>" .
+         "<a href='edit_products.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary'>Edit</a> " .
+         "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
     "</td>"; 
     echo "</tr>";
   }
@@ -114,7 +114,7 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel1"> Add user </h5>
+                                <h5 class="modal-title" id="exampleModalLabel1"> Add product </h5>
                                 <button
                                   type="button"
                                   class="btn-close"
@@ -122,45 +122,29 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
                                   aria-label="Close"
                                 ></button>
                               </div>
-                             <form action="add_user.php"  method="POST" enctype="multipart/form-data" >
+                             <form action="add_product.php"  method="POST" enctype="multipart/form-data" >
 
                               <div class="modal-body">
                                 <div class="row">     
                                   <div class="col mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" name="username" id="username" class="form-control" placeholder="Enter Username" required />
+                                    <label for="service_name" class="form-label">Product Name</label>
+                                    <input type="text" name="service_name" id="service_name" class="form-control" placeholder="Enter Product Name" required />
                                   </div>
                                 </div>
                                 <div class="row g-2">
                                   <div class="col mb-0">
-                                    <label for="fullname" class="form-label">Fullname</label>
-                                    <input type="text"  name="fullname" id="fullname" class="form-control" placeholder="Fullname" required />
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text"  name="description" id="description" class="form-control" placeholder="description" required />
                                   </div>
                                   <div class="col mb-0">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
+                                    <label for="price" class="form-label">Price</label>
+                                    <input type="text" name="price" id="price" class="form-control" placeholder="Price" required />
                                   </div>
-                                </div>
-                                
-                                <div class="row g-2">
-                                    <div class="col mb-0">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required />
-                                  </div>
-                                  <div class="col mb-0">
-                                    <label for="role" class="form-label">Role</label>
-                                    <select name="role" id="role" class="form-control" required >
-                                        <option value="">select role</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="support agent">Support Agent</option>
-                                    </select>
-                                    </div>
-                                  
                                 </div>
                                 <div class="row">     
                                   <div class="col mb-3">
-                                    <label for="profile_pic" class="form-label">Profile Picture</label>
-                                    <input type="file" name="image" id="profile_pic" class="form-control"   />
+                                    <label for="product_pic" class="form-label">Product Image</label>
+                                    <input type="file" name="image" id="product_pic" class="form-control"  required />
                                   </div>
                                 </div>
 
@@ -178,6 +162,39 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
                         </div>
                       </div>
                     </div>
+                    
+                        <!-- Small Modal -->
+                      <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true" data-target-input="delete_id" >
+                        <div class="modal-dialog modal-sm" >
+                          <form action="delete_product.php" method="POST" >
+                            <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel2">Confirm Delete </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete this record?
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <input type="hidden"  name="delete_id" id="delete_id" class="form-control"  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Close
+                              </button>
+                              <button type="submit" name="delete" class="btn btn-primary">Delete</button>
+                            </div>
+                          </div>
+                          </form>
+                        </div>
+                      </div>
 
             </div>
             <!-- / Content -->

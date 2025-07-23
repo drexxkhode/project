@@ -94,8 +94,6 @@ require_once('partials/links.php');
       <div class="portfolio-info">
         <h4><?= htmlspecialchars($product['service_name']) ?></h4>
         <p><?= htmlspecialchars($product['description']) ?></p>
-        <a href="data:<?= $product['image_type'] ?>;base64,<?= base64_encode($product['image']) ?>" title="<?= htmlspecialchars($product['service_name']) ?>" data-gallery="portfolio-gallery-app" class="glightbox preview-link">
-          <i id="zoom" class="bi bi-zoom-in"></i>
         </a>
         <h3 title="Price" class="details-link"><sup>&#8373</sup><?= htmlspecialchars($product['price']) ?></h3>
       </div>

@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
         </div>
       </div>
        <div class="col-lg-8" >
-        <form action="update_user.php" method="POST" enctype="multipart/form-data" >
+        <form action="update_products.php" method="POST" enctype="multipart/form-data" >
             <div class="col-md-12 " > 
                 <input type="hidden" class="form-control" name="id" value="<?= htmlspecialchars($user['id']) ?>"><br>
             </div>
@@ -89,16 +89,15 @@ if (isset($_GET['id'])) {
                 <input type="text"  class="form-control" name="service_name" value="<?= htmlspecialchars($user['service_name']) ?>" required ><br>
             </div>
           <div class="col-md-12 " >
-                
               <input type="text" class="form-control" name="description" value="<?= htmlspecialchars($user['description']) ?>" required ><br>
             </div>
           <div class="col-md-12 " >  
               <input class="form-control"  type="text" name="price" value="<?= htmlspecialchars($user['price']) ?> " required ><br>
             </div>
+            <div class="col-md-12 " >  
+                <input class="form-control"  type="file" name="image" ><br>
+              </div>
           </div>
-          <div class="col-md-12 " >  
-              <input class="form-control"  type="file" name="image" ><br>
-            </div>
           <button type="submit" class="btn btn-primary"> Save changes </button>
         </form>
       </div>

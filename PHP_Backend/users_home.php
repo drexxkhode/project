@@ -87,7 +87,7 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
     echo "<td>" . 
          "<a href='edit_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary'>Edit</a> " .
-         "<a href='delete_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-danger'>Delete</a>" .
+         "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
     "</td>"; 
     echo "</tr>";
   }
@@ -170,9 +170,42 @@ if ($result && $result->num_rows > 0) {
                               </div>
 
                              </form>
-                                                          </div>
+                             </div>
                           </div>
                         </div>
+
+                        <!-- Small Modal -->
+                      <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true" data-target-input="delete_id" >
+                        <div class="modal-dialog modal-sm" >
+                          <form action="delete_user.php" method="POST" >
+                            <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel2">Confirm Delete </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete this record?
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <input type="hidden"  name="delete_id" id="delete_id" class="form-control"  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Close
+                              </button>
+                              <button type="submit" name="delete" class="btn btn-primary">Delete</button>
+                            </div>
+                          </div>
+                          </form>
+                        </div>
+                      </div>
                       </div>
                     </div>
 

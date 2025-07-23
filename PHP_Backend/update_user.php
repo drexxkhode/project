@@ -23,12 +23,12 @@ if (
         $imageTmp = $_FILES['image']['tmp_name'];
         $imageSize = $_FILES['image']['size'];
         $imageType = mime_content_type($imageTmp);
-        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
         $maxSize = 2 * 1024 * 1024; // 2MB
 
         // Validate image
         if (!in_array($imageType, $allowedTypes)) {
-            exit("Only JPG, PNG, and GIF files are allowed.");
+            exit("Only JPG, PNG, WEBP and GIF files are allowed.");
         }
 
         if ($imageSize > $maxSize) {

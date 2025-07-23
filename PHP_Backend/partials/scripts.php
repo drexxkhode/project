@@ -46,3 +46,20 @@ $(function () {
     });
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded',()=>{
+const modals = document.querySelectorAll('.modal');
+modals.forEach(modal => {
+  modal.addEventListener('show.bs.modal',event =>{
+    const button = event.relatedTarget;
+    const id = button.getAttribute('data-id');
+    const targetInputId = modal.getAttribute('data-target-input');
+    if(targetInputId){
+      const input = modal.querySelector(`#${targetInputId}`);
+      if(input) input.value=id;
+    }
+  });
+});
+  });
+</script>
