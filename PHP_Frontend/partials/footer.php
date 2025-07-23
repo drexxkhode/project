@@ -10,8 +10,8 @@
           <div class="footer-contact pt-3">
             <p>A108 Adam Street</p>
             <p>Accra, Dome, DM 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+233 5589 55488 </span></p>
-            <p><strong>Email:</strong> <span>nanamonfarmsltd66@gmail.com</span></p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+233 50914 1585 </span></p>
+            <p><strong>Email:</strong> <span>nanamonfarmsltd@gmail.com</span></p>
           </div>
         </div>
 
@@ -51,9 +51,7 @@
 
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright <span id="year"></span> </span> <strong class="px-1 sitename">Nanamon Farms Ltd.</strong> <span>All Rights Reserved</span></p>
-     <!-- <div class="credits">
-         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
-      </div> -->
+    
     </div>
 
   </footer>

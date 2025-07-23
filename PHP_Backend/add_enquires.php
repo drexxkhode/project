@@ -32,12 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->isSMTP();
             $mail->Host = "smtp.gmail.com";
             $mail->SMTPAuth = true;
-            $mail->Username = "devhub66@gmail.com";
-            $mail->Password = "rkxgvepehchfhfhy";
+            $mail->Username = "nanamonfarmsltd@gmail.com";
+            $mail->Password = "nqwqwtnoasfqtxpc";
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
-            $mail->setFrom("devhub66@gmail.com", "Nanamon Farms Ltd.");
+            $mail->setFrom("nanamonfarmsltd@gmail.com", "Nanamon Farms Ltd.");
             $mail->addAddress($email, $name);
             $mail->isHTML(true);
             $mail->Subject = "Reply from Nanamon Farms Ltd.";
@@ -52,8 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <footer>
                     <hr/>
                     For further enquiries, kindly contact Nanamon Farms Ltd:<br/>
-                    MTN: +233 (0) 59 703 0141<br/>
-                    Email: info@centralmigrationgrace.com<br/>
+                    TELECEL: +233 (0) 50 914 1585<br/>
+                    Email: info@nanamonfarmsltd@gmail.com.com<br/>
                     Website: www.nanamonfarmsltd.com
                     <hr/>
                 </footer>

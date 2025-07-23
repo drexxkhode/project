@@ -36,9 +36,9 @@ $mail->SMTPSecure = 'ssl';
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "devhub66@gmail.com";
-$mail->Password = "rkxgvepehchfhfhy";
-$mail->From ="devhub66@gmail.com";
+$mail->Username = "nanamonfarmsltd@gmail.com";
+$mail->Password = "nqwqwtnoasfqtxpc";
+$mail->From ="nanamonfarmsltd@gmail.com";
 $mail->FromName = "Nanamon Farms Ltd.";
 $mail->Subject = "Reply from Nanamon Farms Ltd.";
 $mail->Body = "
@@ -58,8 +58,8 @@ Best regards <br/>
 <footer>
 <hr/>
 For further enquiries, kindly contact Nanamon Farms Ltd via: <br/>
-Telephone(MTN): +233 (0) 59 703 0141 <br/>
-Email: info@centralmigrationgrace.com <br/>
+Telephone(Telecel): +233 (0) 50 914 1585  <br/>
+Email: info@nanamonfarmsltd@gmail.com <br/>
 Website: www.nanamonfarmsltd.com
 <hr/>
 <a><i class='fa fa-pen'></i></a>

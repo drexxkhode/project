@@ -18,10 +18,10 @@
             <div class="container d-flex justify-content-center justify-content-md-between">
                 <div class="contact-info d-flex align-items-center">
                     <i class="bi bi-envelope d-flex align-items-center">
-                        <a href="mailto:nanamonfarmsltd66@gmail.com">nanamonfarmsltd66@gmail.com</a>
+                        <a href="mailto:nanamonfarmsltd@gmail.com">nanamonfarmsltd@gmail.com</a>
                     </i>
                     <i class="bi bi-phone d-flex align-items-center ms-4">
-                        <span>+233 5589 55488</span>
+                        <span>+233 50914 1585</span>
                     </i>
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">

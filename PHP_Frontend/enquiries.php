@@ -20,8 +20,8 @@
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:nanamonfarmsltd66@gmail.com">nanamonfarmsltd66@gmail.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+233 5589 55488</span></i>
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:nanamonfarmsltd@gmail.com">nanamonfarmsltd@gmail.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+233 50914 1585</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
@@ -87,7 +87,7 @@
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
                   <h3>Call Us</h3>
-                  <p>+233 5589 55488</p>
+                  <p>+233 50914 1585</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -95,7 +95,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>nanamonfarmsltd66@gmail.com</p>
+                  <p>nanamonfarmsltd@gmail.com</p>
                 </div>
               </div>
 
