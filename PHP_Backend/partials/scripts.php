@@ -16,37 +16,24 @@
 
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
-      <!-- DataTables  & Plugins -->
-<script src="assets/DataTables/datatables/jquery.dataTables.min.js"></script>
-<script src="assets/DataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="assets/DataTables/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/DataTables/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="assets/DataTables/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="assets/DataTables/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="assets/DataTables/jszip/jszip.min.js"></script>
-<script src="assets/DataTables/pdfmake/pdfmake.min.js"></script>
-<script src="assets/DataTables/pdfmake/vfs_fonts.js"></script>
-<script src="assets/DataTables/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="assets/DataTables/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="assets/DataTables/datatables-buttons/js/buttons.colVis.min.js"></script>
-<script>
-$(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
 
+    
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+  <!-- Buttons Extension JS -->
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+  <!-- JSZip & pdfmake (for Excel/PDF export support) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+<!-- Id fetching JS For deleting -->
 <script>
   document.addEventListener('DOMContentLoaded',()=>{
 const modals = document.querySelectorAll('.modal');
@@ -61,5 +48,60 @@ modals.forEach(modal => {
     }
   });
 });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $('#dataTable').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+        {
+          extend: 'csvHtml5',
+          text: 'Export CSV',
+          className: 'btn btn-outline-primary me-1'
+        },
+        {
+          extend: 'excelHtml5',
+          text: 'Export Excel',
+          className: 'btn btn-outline-success me-1'
+        },
+        {
+          extend: 'print',
+          text: 'Print',
+          className: 'btn  btn-outline-secondary'
+        }
+      ],
+      pageLength: 10,
+      lengthChange: false,
+      language: {
+        search: "_INPUT_",
+        searchPlaceholder: "Search..."
+      }
+    });
+  });
+</script>
+
+<script>
+  const paymentTypeInput = document.getElementById('paymentType');
+  const bankSelectDiv1 = document.getElementById('bank_select');
+
+  paymentTypeInput.addEventListener('input', function () {
+    if (this.value.toLowerCase() === 'bank') {
+      bankSelectDiv1.style.display = 'block';
+    } else {
+      bankSelectDiv1.style.display = 'none';
+    }
+  });
+
+  const paymentType = document.getElementById("paymentType");
+  const bankSelectDiv2 = document.getElementById("bank_select");
+  const mtnInputDiv = document.getElementById("mtn_input");
+
+  paymentType.addEventListener("input", function () {
+    const value = this.value.trim().toLowerCase();
+
+    bankSelectDiv2.style.display = value === "bank" ? "block" : "none";
+    mtnInputDiv.style.display = value === "mtn mobile money" ? "block" : "none";
   });
 </script>

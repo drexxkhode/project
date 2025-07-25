@@ -30,7 +30,7 @@
                    <?php if (!empty($_SESSION['image_data']) && !empty($_SESSION['image_type'])): ?>
   <img src="data:<?= htmlspecialchars($_SESSION["image_type"]) ?>;base64,<?= base64_encode($_SESSION['image_data']) ?>" alt="User Image" class="w-px-40 h-auto rounded-circle" >
 <?php else: ?>
-  <img src="assets/img/profile.avif" alt="Default Avatar" class="w-px-40 h-auto rounded-circle" > <!-- fallback image -->
+  <img src="assets/img/profile2.webp" alt="Default Avatar" class="w-px-40 h-auto rounded-circle" > <!-- fallback image -->
 <?php endif; ?>  
                   </div>
                   </a>
@@ -43,7 +43,7 @@
                                <?php if (!empty($_SESSION['image_data']) && !empty($_SESSION['image_type'])): ?>
   <img src="data:<?= htmlspecialchars($_SESSION["image_type"]) ?>;base64,<?= base64_encode($_SESSION['image_data']) ?>" alt="User Image" class="w-px-40 h-auto rounded-circle" >
 <?php else: ?>
-  <img src="assets/img/profile.avif" alt="Default Avatar" class="w-px-40 h-auto rounded-circle" > <!-- fallback image -->
+  <img src="assets/img/profile2.webp" alt="Default Avatar" class="w-px-40 h-auto rounded-circle" > <!-- fallback image -->
 <?php endif; ?>
                           </div>
                           </div>

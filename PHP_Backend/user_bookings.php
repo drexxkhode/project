@@ -53,10 +53,10 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 
              <!-- Bordered Table -->
               <div class="card">
-                <h5 class="card-header">Bookings</h5>
-                <div class="card-body">
+                <h5 class="card-header">Bookings</h5>  
+               <div class="card-body">
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-bordered" id="example1"  >
+                    <table class="table table-bordered" id="dataTable"  >
                       <thead>
                         <tr>
                           <th>Id</th>

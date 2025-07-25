@@ -42,9 +42,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->isHTML(true);
             $mail->Subject = "Reply from Nanamon Farms Ltd.";
             $mail->Body = "
-                <div style='width:70%'>
+                <div style='width:90%'>
                 <p>Dear <strong>$name</strong>,</p>
-                <p>Thank you for contacting Nanamon Farms Ltd. This is an automated confirmation that we received your message and will reply soon.</p>
+                <p>  Thank you so much for reaching out to us! 💬
+We've received your request and want you to know it’s in caring and capable hands.
+Your message means a lot to us, and we truly appreciate the opportunity to assist you.
+One of our team members will review your request and get back to you as soon as possible — usually within a short period.
+In the meantime, feel free to relax knowing we’re on it. 🙌
+If you need anything urgent, don’t hesitate to reply to this message or call us directly.
+           
+                </p>
                 </div>
                 <br/><br/>
                 Best Regards!<br/><br/>

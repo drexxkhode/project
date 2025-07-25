@@ -43,7 +43,7 @@ $mail->FromName = "Nanamon Farms Ltd.";
 $mail->Subject = "Reply from Nanamon Farms Ltd.";
 $mail->Body = "
  <br/> <br/>
-<div style='width:70%'>
+<div style='width:90%'>
 <p>Hello <strong>$name</strong>,</p>
 <p>$message</p>
 </div>

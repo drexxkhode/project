@@ -56,9 +56,11 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
               <div class="card">
                 <h5 class="card-header"> Users </h5>
                 <div class="card-body">
-                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-success" > Add User</button>
+                  <div class="col mb-2" >
+                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success" > Add User</button>
+                  </div>
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="dataTable" >
                       <thead>
                         <tr>
                           <th>Id</th>
@@ -102,8 +104,8 @@ if ($result && $result->num_rows > 0) {
                   </div>
                 </div>
               </div>
-              <!--/ Bordered Table -->
-  <!-- Default Modal -->
+              <!--/ End Bordered Table -->
+              <!--  Adding user Modal -->
                     <div class="col-lg-4 col-md-6">
                       <div class="mt-3">
                         <!-- Modal -->

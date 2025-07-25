@@ -51,13 +51,12 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-
              <!-- Bordered Table -->
               <div class="card">
                 <h5 class="card-header">Replied Messages</h5>
                 <div class="card-body">
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="dataTable" >
                       <thead>
                         <tr>
                           <th>Id</th>
@@ -82,12 +81,14 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["clients_id"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["replied_message"]) . "</td>";
+     echo "<td>" . "<a class='btn btn-outline-primary' href='view_replied_msg.php?id=" . urlencode($row["id"]) . "'>view</a>" . "</td>";
     echo "<td>" . htmlspecialchars($row["replied_at"]) . "</td>"; 
+    echo "<td>" . "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
+    "</td>";
     echo "</tr>";
   }
 } else {
-  echo '<tr><td colspan="6" class="text-center">No records found.</td></tr>';
+  echo '<tr><td colspan="7" class="text-center">No records found.</td></tr>';
 }
 ?>
 

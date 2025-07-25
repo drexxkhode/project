@@ -25,12 +25,12 @@
               </a>
             </li>
           
-<?php if ($_SESSION["role"] === "admin"): ?>
+         <?php if ($_SESSION["role"] === "admin"): ?>
 
           <!-- Layouts -->
             <li class="menu-item">
               <a href="report.php" class="menu-link ">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon tf-icons bx bx-line-chart"></i> <!-- Line chart -->
                 <div data-i18n="Layouts">Reports & Finances</div>
               </a>
             </li>
@@ -38,14 +38,14 @@
             <!-- Layouts -->
             <li class="menu-item">
               <a href="manage_products.php" class="menu-link ">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon tf-icons  bx bx-box"></i> <!-- Box/package -->
                 <div data-i18n="Layouts">Manage Products</div>
               </a>
             </li>
 
             <li class="menu-item">
               <a href="user_bookings.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <i class=" menu-icon tf-icons bx bx-calendar-check"></i> <!-- Calendar with checkmark -->
                 <div data-i18n="Account Settings">Service Bookings</div>
               </a>
 
@@ -53,7 +53,7 @@
 
             <li class="menu-item">
               <a href="user_enquiries.php" class="menu-link ">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons  bx bx-message-dots"></i> <!-- Message with dots -->
                 <div data-i18n="Authentications">Client Enquiries</div>
               </a>
 
@@ -61,7 +61,7 @@
               
             <li class="menu-item">
               <a href="replied_msgs.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon ft-icons  bx bx-message-rounded-dots"></i> <!-- Message with dots -->
                 <div data-i18n="Basic"> Replied Messages </div>
               </a>
             </li>

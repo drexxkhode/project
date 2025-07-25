@@ -33,13 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["save"])) {
     $imageSize = $_FILES['image']['size'];
     $imageType = mime_content_type($image);
 
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif','image/avif','image/webp'];
     $maxSize = 2 * 1024 * 1024; // 2MB
 
 
     if (!in_array($imageType, $allowedTypes)) {
         http_response_code(400);
-        echo "Only JPG, PNG, and GIF images are allowed.";
+        echo "Only JPG, PNG, AVIF, WEBP and GIF images are allowed.";
         exit();
     }
 

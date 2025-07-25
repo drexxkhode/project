@@ -56,9 +56,11 @@ require_once 'auth/authenticate.php'; // Ensure the product is authenticated
               <div class="card">
                 <h5 class="card-header"> Products </h5>
                 <div class="card-body">
-                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-success" > Add product</button>
+                  <div class="col mb-2" >
+                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success" > Add product</button>
+                  </div>
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-bordered" id="example1" >
+                    <table class="table table-bordered" id="dataTable" >
                       <thead>
                         <tr>
                           <th>Id</th>

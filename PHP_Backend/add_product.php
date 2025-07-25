@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["save"])) {
 
     if (!in_array($imageType, $allowedTypes)) {
         http_response_code(400);
-        echo "Only JPG, PNG, WEBP,AVIF and GIF images are allowed.";
+        echo "Only JPG, PNG, WEBP, AVIF and GIF images are allowed.";
         exit();
     }
 
