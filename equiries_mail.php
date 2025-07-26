@@ -57,8 +57,7 @@ $mail->Body = "
 
 <br/>
 
-<b>Nanamon Farms Limited © Tech.
-                 <b/>
+<b>Nanamon Farms Limited © Tech. </b>
 
 <footer>
 <hr/>

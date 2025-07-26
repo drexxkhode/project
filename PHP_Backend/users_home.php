@@ -21,7 +21,7 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd - Replied Messages </title>
+    <title> Nanamonfarmsltd -  Users Home </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
@@ -94,7 +94,7 @@ if ($result && $result->num_rows > 0) {
     echo "</tr>";
   }
 } else {
-  echo '<tr><td colspan="6" class="text-center">No records found.</td></tr>';
+  echo '<tr><td colspan="7" class="text-center">No records found.</td></tr>';
 }
 ?>
 

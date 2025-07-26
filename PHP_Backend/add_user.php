@@ -22,13 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["save"])) {
         exit();
     }
 
-    // Image validation
-    if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-        http_response_code(400);
-        echo "Error uploading image.";
-        exit();
-    }
-
+    
     $image = $_FILES['image']['tmp_name'];
     $imageSize = $_FILES['image']['size'];
     $imageType = mime_content_type($image);
