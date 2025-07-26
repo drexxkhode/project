@@ -9,8 +9,6 @@ require_once __DIR__ . '/PHPMailer/PHPMailer/src/Exception.php';
 require_once __DIR__ . '/PHPMailer/PHPMailer/src/PHPMailer.php';
 require_once __DIR__ . '/PHPMailer/PHPMailer/src/SMTP.php';
 
-require_once __DIR__ . '/vendor/autoload.php'; 
-
 
 $id = $_POST['id'];
 $email = $_POST['email'];
