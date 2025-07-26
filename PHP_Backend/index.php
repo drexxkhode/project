@@ -250,6 +250,7 @@ require_once 'db.php';
                         <h5 class="card-header m-0 me-2 pb-3">Payment Input</h5>
                         <div class="px-2"></div>
                       </div>
+
       <form action="add_payments.php" method="POST">
   <!-- Client Name -->
   <div class="col-md-10 px-4">
@@ -301,8 +302,13 @@ require_once 'db.php';
       <option value="GBC">GBC</option>
       <option value="Ecobank">Ecobank</option>
       <option value="Fidelity">Fidelity</option>
+      <option value="Stanbic">Stanbic Bank</option>
       <option value="CBG">CBG</option>
+      <option value="Access">Access Bank</option>
       <option value="ADB">ADB</option>
+      <option value="Zenit">Zenit Bank</option>
+      <option value="Republic">Republic Bank</option>
+      <option value="FNB">First National Bnak</option>
       <option value="UBA">United Bank of Africa</option>
       <option value="ABSA">ABSA</option>
       <option value="UMB">Universal Merchant Bank</option>
