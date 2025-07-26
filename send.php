@@ -3,8 +3,8 @@
 
 // Gmail IMAP config
 $hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
-$username = 'devhub66@gmail.com'; // Replace with your Gmail
-$password = 'rkxgvepehchfhfhy'; // Use App Password
+$username = 'nanamonfarmsltd@gmail.com'; // Replace with your Gmail
+$password = 'nqwqwtnoasfqtxpc'; // Use App Password
 
 // Connect to Gmail
 $inbox = imap_open($hostname, $username, $password) or die('IMAP connection failed: ' . imap_last_error());

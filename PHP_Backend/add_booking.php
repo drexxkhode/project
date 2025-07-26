@@ -64,7 +64,7 @@ If you need anything urgent, don’t hesitate to reply to this message or call u
            </p>
                 </div>
                 <br/><br/>
-                Best Regards!<br/><br/>
+                BEST REGARDS!<br/><br/>
                 <b>Nanamon Farms Limited © Tech.</b>
                 <footer>
                     <hr/>

@@ -46,7 +46,7 @@ $mail->Body = "
 <p>$message</p>
 </div>
 <br/>
-Best regards <br/>
+BEST REGARDS <br/>
 <br/>
 <br/>
 <br/>

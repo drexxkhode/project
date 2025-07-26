@@ -47,7 +47,7 @@ $mail->Body = "
 </div>
 <br/>
 <br/>
-Thank you!!
+ BEST REGARDS!
 
 <br/>
 <br/>
