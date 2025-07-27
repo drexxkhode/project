@@ -44,15 +44,15 @@ if (
             $stmt->bind_param("ssssbsi", $username, $fullname, $email, $role, $null, $imageType, $id);
             $stmt->send_long_data(4, $imgContent);
             if ($stmt->execute()) {
-                // ✅ Update session with new image
-                $_SESSION['image_data'] = $imgContent;
-                $_SESSION['image_type'] = $imageType;
-
-                // Optionally update other session fields if needed
-                $_SESSION['username'] = $username;
-                $_SESSION['fullname'] = $fullname;
-                $_SESSION['email'] = $email;
-                $_SESSION['role'] = $role;
+                // ✅ Update session only if the current user is the one being updated
+                if (isset($_SESSION['id']) && $_SESSION['id'] == $id) {
+                    $_SESSION['username'] = $username;
+                    $_SESSION['fullname'] = $fullname;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['role'] = $role;
+                    $_SESSION['image_data'] = $imgContent;
+                    $_SESSION['image_type'] = $imageType;
+                }
 
                 header("Location: users_home.php?status=success");
                 exit;
@@ -70,11 +70,13 @@ if (
         if ($stmt) {
             $stmt->bind_param("ssssi", $username, $fullname, $email, $role, $id);
             if ($stmt->execute()) {
-                // ✅ Update session fields (excluding image)
-                $_SESSION['username'] = $username;
-                $_SESSION['fullname'] = $fullname;
-                $_SESSION['email'] = $email;
-                $_SESSION['role'] = $role;
+                // ✅ Update session only if the current user is the one being updated
+                if (isset($_SESSION['id']) && $_SESSION['id'] == $id) {
+                    $_SESSION['username'] = $username;
+                    $_SESSION['fullname'] = $fullname;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['role'] = $role;
+                }
 
                 header("Location: users_home.php?status=success");
                 exit;

@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["loginBTN"])) {
     $user = $result->fetch_assoc();
 
     if ($user && password_verify($password, $user['password'])) {
+        $_SESSION["id"] = $user["id"];
         $_SESSION["username"] = $user["username"];
         $_SESSION["role"] = $user["role"];
         $_SESSION["image_data"] = $user["image_data"];
