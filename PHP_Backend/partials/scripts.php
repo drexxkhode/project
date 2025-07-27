@@ -50,7 +50,7 @@ modals.forEach(modal => {
 });
   });
 </script>
-
+<!-- Scripts for Datatable Buttons -->
 <script>
   $(document).ready(function () {
     $('#dataTable').DataTable({
@@ -81,6 +81,8 @@ modals.forEach(modal => {
     });
   });
 </script>
+
+<!-- Scripts for Fetching Banks Types And Momo Number -->
 
 <script>
   const paymentTypeInput = document.getElementById('paymentType');
