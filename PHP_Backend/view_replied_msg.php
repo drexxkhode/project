@@ -74,7 +74,7 @@ if (isset($_GET['id'])) {
         
       </div>
       <div>
-       <textarea class="form-control"  rows="10" id="message-field" readonly ><?= htmlspecialchars($user['replied_message']) ?></textarea><br>
+       <textarea class="form-control"  rows="5" id="message-field" readonly ><?= htmlspecialchars($user['replied_message']) ?></textarea><br>
       </div>
     </div>
   </div>
