@@ -26,7 +26,7 @@
   }).addTo(map);
 
   // Add your company marker
-  const companyLat = 5.6037, companyLng = -0.1870;
+  const companyLat = 5.7037, companyLng = -0.1680;
   const companyMarker = L.marker([companyLat, companyLng])
     .addTo(map)
     .bindPopup("<b>Nanamon Farms Ltd.</b><br>Accra, Ghana")

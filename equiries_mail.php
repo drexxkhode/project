@@ -37,7 +37,6 @@ $mail->From ="nanamonfarmsltd@gmail.com";
 $mail->FromName = "Nanamon Farms Ltd.";
 
 
-
 $mail->Subject = "Reply from Nanamon Farms Ltd.";
 $mail->Body = "
  <br/> <br/>
@@ -51,10 +50,6 @@ $mail->Body = "
 
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-
 <br/>
 
 <b>Nanamon Farms Limited © Tech. </b>

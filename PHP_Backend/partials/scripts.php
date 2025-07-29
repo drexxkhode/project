@@ -35,7 +35,7 @@
 
 <!-- Id fetching JS For deleting -->
 <script>
-  document.addEventListener('DOMContentLoaded',()=>{
+  document.addEventListener('DOMContentLoaded', () =>{
 const modals = document.querySelectorAll('.modal');
 modals.forEach(modal => {
   modal.addEventListener('show.bs.modal',event =>{

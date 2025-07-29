@@ -1,0 +1,155 @@
+.input-group-text {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0 0.25rem;
+  height: 100%;
+}
+
+.input-group .bi {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  bottom: 25px;
+  left: 200px;
+}
+/* Add styles for help-block and text-center */
+.help-block {
+  color: #888;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+}
+
+.text-center {
+  text-align: center !important;
+}
+body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #e0e7f0, #f0f4f8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  box-shadow: var(--bs-box-shadow-inset);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+        .lockscreen {
+            text-align: center;
+        }
+        
+        .password-container {
+            margin: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        input[type="password"] {
+           background-color: white;
+            vertical-align: middle;
+            border-radius: 2px;
+            width: 900px;
+           
+        }
+        input[type="password"]:focus{
+            outline: none;
+           
+        }
+        
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+.input-group .btn {
+  position: relative;
+  z-index: 2;
+}
+.input-group .btn:focus {
+  z-index: 5;
+}
+.shadow-none{
+    box-shadow: none !important;
+}
+.lockscreen .lockscreen-name {
+  font-weight: 600;
+  text-align: center;
+}
+.lockscreen .lockscreen-logo {
+  margin-bottom: 25px;
+  font-size: 35px;
+  font-weight: 300;
+  text-align: center;
+}
+.lockscreen .lockscreen-logo a {
+  color: var(--bs-emphasis-color);
+  text-decoration: none;
+}
+.lockscreen .lockscreen-wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+.lockscreen .lockscreen-item {
+  position: relative;
+  width: 290px;
+  padding: 0;
+  margin: 10px auto 30px;
+  background-color: var(--bs-body-bg);
+  border-radius: 10px;
+}
+.lockscreen .lockscreen-image {
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  z-index: 10;
+  border: 4px solid white;
+  border-radius: 50%  ;
+}
+.lockscreen .lockscreen-image > img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+.lockscreen .lockscreen-credentials {
+  margin-left: 50px;
+}
+.lockscreen .lockscreen-credentials .form-control {
+  border: 0;
+}
+.lockscreen .lockscreen-credentials .btn {
+  padding: 0 10px;
+  border: 0;
+}
+.lockscreen .lockscreen-footer {
+  margin-top: 10px;
+}
+.px-1{
+    padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
+}
+.social-auth-links {
+  margin: 10px 0;
+}

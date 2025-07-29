@@ -2,7 +2,6 @@
 require_once 'db.php';
 require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 
-
 ?>
 
 <!DOCTYPE html>

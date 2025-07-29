@@ -49,8 +49,6 @@ $mail->Body = "
 BEST REGARDS <br/>
 <br/>
 <br/>
-<br/>
-<br/>
 
 <b>Nanamon Farms Limited © Tech. </b>
 <footer>

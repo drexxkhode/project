@@ -79,7 +79,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>A108 Adam Street, Dome, DM 535022</p>
+                  <p>A108 Adams Street, Adenta, AD 535022</p>
                 </div>
               </div><!-- End Info Item -->
 

@@ -2,7 +2,6 @@
 
 require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 require_once 'db.php'; // Your DB connection file
-
 $user = [
   'id' => '',
   'clients_id'=>'',
