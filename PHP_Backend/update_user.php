@@ -11,13 +11,14 @@ if (
     $email = trim($_POST['email']);
     $role = trim($_POST['role']);
 
-    // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         exit("Invalid email format.");
     }
 
-    // Check if a new image was uploaded
     $imageUpdated = isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK;
+
+    $currentUserIsEditingSelf = isset($_SESSION['id']) && $_SESSION['id'] == $id;
+    $originalRole = $currentUserIsEditingSelf ? $_SESSION['role'] : null;
 
     if ($imageUpdated) {
         $imageTmp = $_FILES['image']['tmp_name'];
@@ -26,7 +27,6 @@ if (
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
         $maxSize = 2 * 1024 * 1024; // 2MB
 
-        // Validate image
         if (!in_array($imageType, $allowedTypes)) {
             exit("Only JPG, PNG, WEBP and GIF files are allowed.");
         }
@@ -37,15 +37,21 @@ if (
 
         $imgContent = file_get_contents($imageTmp);
 
-        // Update including image
         $stmt = $con->prepare("UPDATE users SET username=?, fullname=?, email=?, role=?, image_data=?, image_type=? WHERE id=?");
         if ($stmt) {
             $null = null;
             $stmt->bind_param("ssssbsi", $username, $fullname, $email, $role, $null, $imageType, $id);
             $stmt->send_long_data(4, $imgContent);
             if ($stmt->execute()) {
-                // ✅ Update session only if the current user is the one being updated
-                if (isset($_SESSION['id']) && $_SESSION['id'] == $id) {
+
+                if ($currentUserIsEditingSelf) {
+                    if ($role !== $originalRole) {
+                        session_unset();
+                        session_destroy();
+                        header("Location: login.php?message=Your role was changed. Please log in again.");
+                        exit;
+                    }
+
                     $_SESSION['username'] = $username;
                     $_SESSION['fullname'] = $fullname;
                     $_SESSION['email'] = $email;
@@ -65,13 +71,19 @@ if (
         }
 
     } else {
-        // No image uploaded — update everything else
         $stmt = $con->prepare("UPDATE users SET username=?, fullname=?, email=?, role=? WHERE id=?");
         if ($stmt) {
             $stmt->bind_param("ssssi", $username, $fullname, $email, $role, $id);
             if ($stmt->execute()) {
-                // ✅ Update session only if the current user is the one being updated
-                if (isset($_SESSION['id']) && $_SESSION['id'] == $id) {
+
+                if ($currentUserIsEditingSelf) {
+                    if ($role !== $originalRole) {
+                        session_unset();
+                        session_destroy();
+                        header("Location: login.php?message=Your role was changed. Please log in again.");
+                        exit;
+                    }
+
                     $_SESSION['username'] = $username;
                     $_SESSION['fullname'] = $fullname;
                     $_SESSION['email'] = $email;
