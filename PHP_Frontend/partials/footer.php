@@ -8,8 +8,8 @@
             <span class="sitename">Nanamon Farms Ltd.</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>Accra, Dome, DM 535022</p>
+            <p>A108 Adams Street</p>
+            <p>Accra, Adenta, AD 535022</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+233 50914 1585 </span></p>
             <p><strong>Email:</strong> <span>nanamonfarmsltd@gmail.com</span></p>
           </div>

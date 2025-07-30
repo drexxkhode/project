@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["loginBTN"])) {
         $_SESSION['is_authenticated'] = true;
         $_SESSION["id"] = $user["id"];
         $_SESSION["username"] = $user["username"];
+        $_SESSION["fullname"] = $user["fullname"];
         $_SESSION["role"] = $user["role"];
         $_SESSION["image_data"] = $user["image_data"];
         $_SESSION["image_type"] = $user["image_type"];

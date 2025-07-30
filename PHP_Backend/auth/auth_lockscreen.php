@@ -7,9 +7,17 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_SESSION['username'];
     $password = $_POST['password'];
+
+    if(empty($password)){
+         $_SESSION['error'] = "Password required ";
+            header("Location: ../lockscreen.php");
+            exit();
+ }
+
 
     $stmt = $con->prepare("SELECT password FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
