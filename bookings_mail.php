@@ -49,7 +49,8 @@ $mail->Body = "
 <p>$message</p>
 </div>
 <br/>
-BEST REGARDS <br/>
+<br/>
+<p><b>BEST REGARDS!</b></p> 
 <br/>
 <br/>
 

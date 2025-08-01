@@ -57,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </p>
                 </div>
                 <br/><br/>
-                BEST REGARDS!<br/><br/>
+               <p><b>BEST REGARDS!</b></p> 
+                <br/><br/>
                 <b>Nananom Farms Limited © Tech.</b>
                 <footer>
                     <hr/>

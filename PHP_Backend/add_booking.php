@@ -64,7 +64,9 @@ If you need anything urgent, don’t hesitate to reply to this message or call u
            </p>
                 </div>
                 <br/><br/>
-                BEST REGARDS!<br/><br/>
+                <p><b>BEST REGARDS!</b></p> 
+                <br/>
+                <br/>
                 <b>Nananom Farms Limited © Tech.</b>
                 <footer>
                     <hr/>
