@@ -24,11 +24,15 @@ if (
 
         // Validate image
         if (!in_array($imageType, $allowedTypes)) {
-            exit("Only JPG, PNG, WEBP, AVIF and GIF files are allowed.");
-        }
+            setAlert('error', 'image format', 'Only JPG,PNG WEBP AND GIF files are allowed.', 3000, false);
+            header("Location: manage_products.php");
+            exit;
+       }
 
         if ($imageSize > $maxSize) {
-            exit("Image must be less than 2MB.");
+            setAlert('error', 'image size', 'Image must be less than 2MB.', 3000, false);
+            header("Location: manage_products.php");
+            exit;
         }
 
         $imgContent = file_get_contents($imageTmp);
@@ -40,9 +44,9 @@ if (
             $stmt->bind_param("ssdbsi", $service_name, $description, $price,  $null, $imageType, $id);
             $stmt->send_long_data(3, $imgContent);
             if ($stmt->execute()) {
-              
-                header("Location: manage_products.php?status=success");
-                exit;
+              setAlert('success', 'Updated', 'Changes Saved.', 3000, false);
+            header("Location: manage_products.php");
+            exit;
             } else {
                 echo "Execution failed: " . $stmt->error;
             }
@@ -57,9 +61,9 @@ if (
         if ($stmt) {
             $stmt->bind_param("ssdi", $service_name, $description, $price,  $id);
             if ($stmt->execute()) {
-             
-                header("Location: manage_products.php?status=success");
-                exit;
+             setAlert('success', 'Updated', 'Changes Saved.', 3000, false);
+            header("Location: manage_products.php");
+            exit;
             } else {
                 echo "Execution failed: " . $stmt->error;
             }
