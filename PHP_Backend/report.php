@@ -19,15 +19,18 @@ require_once 'db.php';
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd - Reports & Finances </title>
+    <title> Nananomfarmsltd - Reports & Finances </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
         <!-- End links -->
-    <meta name="description" content="" />
+         <!-- Sweet Alert helper js  -->
+ <link rel="stylesheet" href="libs/sweetAlert2/sweetalert2.min.css">
 
-   
-  </head>
+    <meta name="description" content="" />
+<!-- Sweet Alert helper js  -->
+ <script src="handler/alert-handler.js"></script>   
+</head>
 
   <body>
     <!-- Layout wrapper -->
@@ -373,6 +376,41 @@ if ($result && $result->num_rows > 0) {
                 </div>
               </div>
               <!--/ Bordered Table -->
+
+                  <!-- Delete Modal -->
+                      <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true" data-target-input="delete_id" >
+                        <div class="modal-dialog modal-sm" >
+                          <form action="delete_payment.php" method="POST" >
+                            <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel2">Confirm Delete </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete this record?
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <input type="hidden"  name="delete_id" id="delete_id" class="form-control"  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Close
+                              </button>
+                              <button type="submit" name="delete" class="btn btn-primary">Delete</button>
+                            </div>
+                          </div>
+                          </form>
+                        </div>
+                      </div>
+
+
             </div>
             
             <!-- / Content -->
@@ -395,5 +433,20 @@ if ($result && $result->num_rows > 0) {
 
     <!-- Core JS -->
 <?php require_once('partials/scripts.php'); ?>
+<script src="libs/sweetAlert2/sweetalert2.min.js"></script>
+
+    <?php
+    // Ensure alert is displayed after all JS is loaded
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (file_exists('handler/alert-handler.php')) {
+        include 'handler/alert-handler.php';
+        if (function_exists('displayAlert')) {
+            displayAlert();
+        }
+    }
+    ?>
+
 
     </body>

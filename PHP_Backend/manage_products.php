@@ -21,14 +21,17 @@ require_once 'auth/authenticate.php'; // Ensure the product is authenticated
       content="width=device-width, initial-scale=1.0, product-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd - Products </title>
+    <title> Nananomfarmsltd - Products </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
         <!-- End links -->
-    <meta name="description" content="" />
+         <!-- Sweet Alert helper js  -->
+ <link rel="stylesheet" href="libs/sweetAlert2/sweetalert2.min.css">
 
-   
+    <meta name="description" content="" />
+<!-- Sweet Alert helper js  -->
+ <script src="handler/alert-handler.js"></script>
   </head>
 
   <body>
@@ -57,7 +60,7 @@ require_once 'auth/authenticate.php'; // Ensure the product is authenticated
                 <h5 class="card-header"> Products </h5>
                 <div class="card-body">
                   <div class="col mb-2" >
-                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success" > Add product</button>
+                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success" title="Add Product" > <i class='bx  bx-plus'  ></i>    </button>
                   </div>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-bordered" id="dataTable" >
@@ -91,7 +94,7 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
 
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
     echo "<td>" . 
-         "<a href='edit_products.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary'>Edit</a> " .
+         "<a href='edit_products.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary mb-1'>Edit</a> " .
          "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
     "</td>"; 
     echo "</tr>";
@@ -198,6 +201,8 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
                         </div>
                       </div>
 
+                      </div>
+
             </div>
             <!-- / Content -->
 
@@ -219,6 +224,20 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
 
     <!-- Core JS -->
 <?php require_once('partials/scripts.php'); ?>
+<script src="libs/sweetAlert2/sweetalert2.min.js"></script>
+
+    <?php
+    // Ensure alert is displayed after all JS is loaded
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (file_exists('handler/alert-handler.php')) {
+        include 'handler/alert-handler.php';
+        if (function_exists('displayAlert')) {
+            displayAlert();
+        }
+    }
+    ?>
 
     </body>
 </html>

@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
   <meta charset="utf-8" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-  <title>Nanamonfarmsltd - Edit User </title>
+  <title>Nananomfarmsltd - Edit Products </title>
 <!-- Page CSS -->
 
   <?php include_once('partials/links.php'); ?>

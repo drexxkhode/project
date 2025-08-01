@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Inactivity threshold (e.g., 5 minutes)
 define('INACTIVITY_TIMEOUT', 300);

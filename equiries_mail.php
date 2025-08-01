@@ -1,5 +1,7 @@
 
 <?php 
+session_start();
+include './PHP_Backend/handler/alert-handler.php';
 require_once './PHP_Backend/db.php'; // Include your database connection file
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -34,10 +36,10 @@ $mail->IsHTML(true);
 $mail->Username = "nanamonfarmsltd@gmail.com";
 $mail->Password = "nqwqwtnoasfqtxpc";
 $mail->From ="nanamonfarmsltd@gmail.com";
-$mail->FromName = "Nanamon Farms Ltd.";
+$mail->FromName = "Nananom Farms Ltd.";
 
 
-$mail->Subject = "Reply from Nanamon Farms Ltd.";
+$mail->Subject = "Reply from Nananom Farms Ltd.";
 $mail->Body = "
  <br/> <br/>
 <div style='width:90%'>
@@ -52,16 +54,16 @@ $mail->Body = "
 <br/>
 <br/>
 
-<b>Nanamon Farms Limited © Tech. </b>
+<b>Nananom Farms Limited © Tech. </b>
 
 <footer>
 <hr/>
-For further enquiries, kindly contact Nanamon Farms Ltd via: <br/>
+For further enquiries, kindly contact Nananom Farms Ltd via: <br/>
 Telephone(Telecel): +233 (0) 50 914 1585 <br/>
-Email: info@nanamonfarmsltd@gmail.com <br/>
-Website: www.nanamonfarmsltd.com
+Email: nanamonfarmsltd@gmail.com <br/>
+Website: www.nananomfarmsltd.com
 <hr/>
-<a><i class='fa fa-pen'></i></a>
+<a>✍️</a>
 </footer>
 "
 
@@ -71,12 +73,15 @@ $mail->addAddress($email,$name);
 
 if(!$mail->Send())
 {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-}
+     setAlert('error','Error 404', 'Failed to reply! Check Internet Connection .', 3000, false);
+    header("Location: PHP_Backend/user_enquiries.php");
+    exit;
+  }
 else
 {
-    echo "Message has been sent";
-    header("Location: PHP_Backend/user_enquiries.php "); // Redirect to the enquiries page
-    exit();
+    setAlert('success','Success', 'Email sent to client.', 3000, false);
+    header("Location: PHP_Backend/user_enquiries.php" ); // Redirect to the enquiries page
+    exit;
+    
 }
 

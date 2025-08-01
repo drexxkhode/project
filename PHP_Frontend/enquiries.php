@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title> nanamonfarmsltd.com - Enquiries </title>
+  <title> nananomfarmsltd.com - Enquiries </title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- Links -->
@@ -38,7 +38,7 @@
         <a href="index.php" class="logo d-flex align-items-center">
           
            <img src="assets/img/logo.png" alt=""> 
-          <h3 class="sitename">Nanamon Farms Ltd.</h3>
+          <h3 class="sitename">Nananom Farms Ltd.</h3>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -64,8 +64,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
+        <h2>Enquiry</h2>
+        <p><span>Need Help?</span> <span class="description-title">Send Message</span></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">

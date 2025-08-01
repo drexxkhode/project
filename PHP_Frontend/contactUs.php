@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>nanamonfarmsltd.com - Contact Us </title>
+  <title>nananomfarmsltd.com - Contact Us </title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- Links -->
@@ -39,7 +39,7 @@
         <a href="index.php" class="logo d-flex align-items-center">
           
            <img src="assets/img/logo.png" alt=""> 
-          <h3 class="sitename">Nanamon Farms Ltd.</h3>
+          <h3 class="sitename">Nananom Farms Ltd.</h3>
         </a>
 
         <nav id="navmenu" class="navmenu">

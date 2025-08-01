@@ -20,7 +20,7 @@ if (isset($_SESSION["username"])) {
         name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Nanamonfarmsltd - Login </title>
+    <title>Nananomfarmsltd - Login </title>
 
     <meta name="description" content="" />
 
@@ -69,7 +69,7 @@ if (isset($_SESSION["username"])) {
                                 <span class="app-brand-logo demo">
                                     <img src="assets/img/icons/brands/icon.jpg" alt="icon" style="width: 40px;height: 30px;">
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder"> Nanamon</span>
+                                <span class="app-brand-text demo text-body fw-bolder"> Nananom</span>
                             </a>
                         </div>
                         <!-- /Logo -->

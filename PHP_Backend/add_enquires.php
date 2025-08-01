@@ -41,32 +41,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
-            $mail->setFrom("nanamonfarmsltd@gmail.com", "Nanamon Farms Ltd.");
+            $mail->setFrom("nanamonfarmsltd@gmail.com", "Nananom Farms Ltd.");
             $mail->addAddress($email, $name);
             $mail->isHTML(true);
-            $mail->Subject = "Reply from Nanamon Farms Ltd.";
+            $mail->Subject = "Reply from Nananom Farms Ltd.";
             $mail->Body = "
                 <div style='width:90%'>
                 <p>Dear <strong>$name</strong>,</p>
                 <p> Thank you so much for reaching out to us! 💬
-We've received your request and want you to know it’s in caring and capable hands.
+            We've received your request and want you to know it’s in caring and capable hands.
 
-Your message means a lot to us, and we truly appreciate the opportunity to assist you. One of our team members will review your request and get back to you as soon as possible — usually within a short period.
-In the meantime, feel free to relax knowing we’re on it. 🙌
-If you need anything urgent, don’t hesitate to reply to this message or call us directly.
-           </p>
+             Your message means a lot to us, and we truly appreciate the opportunity to assist you. One of our team members will review your request and get back to you as soon as possible — usually within a short period.
+             In the meantime, feel free to relax knowing we’re on it. 🙌
+            If you need anything urgent, don’t hesitate to reply to this message or call us directly.
+            </p>
                 </div>
                 <br/><br/>
                 BEST REGARDS!<br/><br/>
-                <b>Nanamon Farms Limited © Tech.</b>
+                <b>Nananom Farms Limited © Tech.</b>
                 <footer>
                     <hr/>
                     Contact us:<br/>
                     TELECEL: +233 (0) 50 914 1585<br/>
-                    Email: info@nanamonfarmsltd@gmail.com<br/>
-                    Website: www.nanamonfarmsltd.com
+                    Email: nanamonfarmsltd@gmail.com<br/>
+                    Website: www.nananomfarmsltd.com
                     <hr/>
                 </footer>
+                <a>✍️</a>
             ";
             $mail->send();
         } catch (Exception $e) {

@@ -1,4 +1,6 @@
 <?php
+session_start();
+include 'handler/alert-handler.php';
 require_once 'db.php'; // DB connection
 
 if (

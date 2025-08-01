@@ -5,7 +5,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">Nanamon Farms Ltd.</span>
+            <span class="sitename">Nananom Farms Ltd.</span>
           </a>
           <div class="footer-contact pt-3">
             <p>A108 Adams Street</p>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright <span id="year"></span> </span> <strong class="px-1 sitename">Nanamon Farms Ltd.</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright <span id="year"></span> </span> <strong class="px-1 sitename">Nananom Farms Ltd.</strong> <span>All Rights Reserved</span></p>
     
     </div>
 

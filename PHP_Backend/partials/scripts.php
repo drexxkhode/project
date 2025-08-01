@@ -16,8 +16,6 @@
 
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
-
-    
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
@@ -53,35 +51,38 @@ modals.forEach(modal => {
 <!-- Scripts for Datatable Buttons -->
 <script>
   $(document).ready(function () {
-    $('#dataTable').DataTable({
-      dom: 'Bfrtip',
-      buttons: [
-        {
-          extend: 'csvHtml5',
-          text: 'Export CSV',
-          className: 'btn btn-outline-primary me-1'
-        },
-        {
-          extend: 'excelHtml5',
-          text: 'Export Excel',
-          className: 'btn btn-outline-success me-1'
-        },
-        {
-          extend: 'print',
-          text: 'Print',
-          className: 'btn  btn-outline-secondary'
-        }
-      ],
-      pageLength: 10,
-      lengthChange: false,
-      language: {
-        search: "_INPUT_",
-        searchPlaceholder: "Search..."
+  $('#dataTable').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+      {
+        extend: 'csvHtml5',
+        text: '<i class="bx bx-file"></i>',
+        className: 'btn btn-outline-primary me-1',
+        titleAttr: 'Export CSV' // Tooltip on hover
+      },
+      {
+        extend: 'excelHtml5',
+        text: '<i class="bx bx-spreadsheet"></i>',
+        className: 'btn btn-outline-success me-1',
+        titleAttr: 'Export Excel'
+      },
+      {
+        extend: 'print',
+        text: '<i class="bx bx-printer"></i>',
+        className: 'btn btn-outline-secondary',
+        titleAttr: 'Print'
       }
-    });
+    ],
+    pageLength: 10,
+    lengthChange: false,
+    language: {
+      search: "_INPUT_",
+      searchPlaceholder: "Search..."
+    }
   });
-</script>
+});
 
+</script>
 <!-- Scripts for Fetching Banks Types And Momo Number -->
 
 <script>

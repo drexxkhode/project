@@ -20,12 +20,12 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
-    <title>Nanamonfarmsltd - Lock Screen </title>
+    <title>Nananomfarmsltd - Lock Screen </title>
     <body class="lockscreen bg-body-secondary">
 
     <div class="lockscreen-wrapper">
       <div class="lockscreen-logo">
-        <a href="lockscreen.php"><b>Nanamon Farms Ltd. </b> 🔒</a>
+        <a href="lockscreen.php"><b>Nananom Farms Ltd. </b> 🔒</a>
 
       </div>
 
@@ -69,7 +69,7 @@ if (!isset($_SESSION['username'])) {
         Copyright © <script> document.write(new Date().getFullYear()); </script> &nbsp;
         
         <br />
-        All rights reserved
+        All rights reserved.
       </div>
     </div>
 

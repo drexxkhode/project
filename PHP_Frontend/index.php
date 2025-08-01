@@ -38,7 +38,7 @@
         <a href="index.php" class="logo d-flex align-items-center">
           
            <img src="assets/img/logo.png" alt=""> 
-          <h3 class="sitename">Nanamon Farms Ltd.</h3>
+          <h3 class="sitename">Nananom Farms Ltd.</h3>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -67,7 +67,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <h1>Welcome to <span>Nanamon Farms Ltd.</span></h1>
+            <h1>Welcome to <span>Nananom Farms Ltd.</span></h1>
             <p>We are a rising leader in Ghana's palm oil industry.</p>
             <div class="d-flex">
               <a href="#stats" class="btn-get-started">Get Started</a>

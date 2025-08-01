@@ -13,10 +13,11 @@
   <script src="assets/js/main.js"></script>
 <script> document.getElementById("year").textContent= new Date().getFullYear();</script>
 
- <!-- JS Libraries -->
+ <!--Leaflet JS Libraries -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 
 <script>
   const map = L.map('map').setView([5.6037, -0.1870], 13); // Ghana center
@@ -25,17 +26,21 @@
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  // Add your company marker
-  const companyLat = 5.7037, companyLng = -0.1680;
-  const companyMarker = L.marker([companyLat, companyLng])
+  // Company Marker
+  const companyLatLng = [5.7037, -0.1680];
+  const companyMarker = L.marker(companyLatLng)
     .addTo(map)
-    .bindPopup("<b>Nanamon Farms Ltd.</b><br>Accra, Ghana")
+    .bindPopup("<b>Nananom Farms Ltd.</b><br>Accra, Ghana")
     .openPopup();
 
-  // User and route variables
+  // Variables
   let userMarker = null, accuracyCircle = null, watchId = null;
-  let routingControl = null, destinationMarker = null;
+  let destinationLatLng = companyLatLng; // Default: Company
+  let destinationMarker = null;
   let userLatLng = null;
+
+  let trailCoordinates = []; // path from user to destination
+  let trailPolyline = null;
 
   const trackerBtn = document.getElementById("tracker-btn");
 
@@ -52,12 +57,14 @@
         const accuracy = position.coords.accuracy;
         userLatLng = [lat, lng];
 
+        // User marker
         if (!userMarker) {
           userMarker = L.marker(userLatLng).addTo(map).bindPopup("Your Location").openPopup();
         } else {
           userMarker.setLatLng(userLatLng);
         }
 
+        // Accuracy circle
         if (!accuracyCircle) {
           accuracyCircle = L.circle(userLatLng, {
             radius: accuracy,
@@ -70,12 +77,19 @@
           accuracyCircle.setRadius(accuracy);
         }
 
-        map.setView(userLatLng, 14);
+        map.setView(userLatLng, 15);
 
-        // If a destination was selected, recalculate route
-        if (destinationMarker && routingControl) {
-          routingControl.setWaypoints([L.latLng(userLatLng), destinationMarker.getLatLng()]);
+        // Add to trail
+        trailCoordinates.push(userLatLng);
+        if (!trailPolyline) {
+          trailPolyline = L.polyline(trailCoordinates, {
+            color: 'green',
+            weight: 4
+          }).addTo(map);
+        } else {
+          trailPolyline.setLatLngs([...trailCoordinates, destinationLatLng]);
         }
+
       },
       error => alert("Error: " + error.message),
       {
@@ -97,10 +111,13 @@
 
     if (userMarker) { map.removeLayer(userMarker); userMarker = null; }
     if (accuracyCircle) { map.removeLayer(accuracyCircle); accuracyCircle = null; }
-    if (routingControl) { map.removeControl(routingControl); routingControl = null; }
+    if (trailPolyline) { map.removeLayer(trailPolyline); trailPolyline = null; }
     if (destinationMarker) { map.removeLayer(destinationMarker); destinationMarker = null; }
 
+    trailCoordinates = [];
     userLatLng = null;
+    destinationLatLng = companyLatLng; // Reset to company by default
+
     trackerBtn.textContent = "Start Tracking";
     trackerBtn.style.backgroundColor = "#007bff";
   }
@@ -113,7 +130,7 @@
     }
   });
 
-  // Add search bar
+  // Geocoder (Search bar)
   L.Control.geocoder({
     defaultMarkGeocode: false
   })
@@ -124,24 +141,20 @@
       map.removeLayer(destinationMarker);
     }
 
+    destinationLatLng = latlng;
+
     destinationMarker = L.marker(latlng).addTo(map).bindPopup("Destination").openPopup();
     map.setView(latlng, 15);
 
-    if (userLatLng) {
-      // Show route from user to searched location
-      if (routingControl) {
-        routingControl.setWaypoints([L.latLng(userLatLng), latlng]);
-      } else {
-        routingControl = L.Routing.control({
-          waypoints: [L.latLng(userLatLng), latlng],
-          routeWhileDragging: false,
-          addWaypoints: false,
-          draggableWaypoints: false,
-          createMarker: () => null // prevent auto-marker
-        }).addTo(map);
-      }
-    } else {
-      alert("Start tracking first to enable route generation.");
+    // Reset trail so new trail goes to new destination
+    trailCoordinates = [];
+    if (trailPolyline) {
+      map.removeLayer(trailPolyline);
+      trailPolyline = null;
+    }
+
+    if (!userLatLng) {
+      alert("Start tracking first to draw trail.");
     }
   })
   .addTo(map);

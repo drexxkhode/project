@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'db.php'; // DB connection
+require 'handler/alert-handler.php';
 
 if (
     isset($_POST['id'], $_POST['username'], $_POST['fullname'], $_POST['email'], $_POST['role'])
@@ -28,12 +29,16 @@ if (
         $maxSize = 2 * 1024 * 1024; // 2MB
 
         if (!in_array($imageType, $allowedTypes)) {
-            exit("Only JPG, PNG, WEBP and GIF files are allowed.");
+            setAlert('error', 'image format', 'Only JPG,PNG WEBP AND GIF files are allowed.', 3000, false);
+            header("Location: users_home.php");
+            exit;
         }
 
         if ($imageSize > $maxSize) {
-            exit("Image must be less than 2MB.");
-        }
+            setAlert('error', 'image size', 'Image must be less than 2MB.', 3000, false);
+            header("Location: users_home.php");
+            exit;
+         }
 
         $imgContent = file_get_contents($imageTmp);
 
@@ -60,8 +65,9 @@ if (
                     $_SESSION['image_type'] = $imageType;
                 }
 
-                header("Location: users_home.php?status=success");
-                exit;
+            setAlert('success', 'Update', 'Changes Saved.', 3000, false);
+            header("Location: users_home.php");
+            exit;
             } else {
                 echo "Execution failed: " . $stmt->error;
             }
@@ -90,8 +96,9 @@ if (
                     $_SESSION['role'] = $role;
                 }
 
-                header("Location: users_home.php?status=success");
-                exit;
+            setAlert('success', 'Update', 'Changes Saved.', 3000, false);
+            header("Location: users_home.php");
+            exit;
             } else {
                 echo "Execution failed: " . $stmt->error;
             }

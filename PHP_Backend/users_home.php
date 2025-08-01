@@ -1,4 +1,5 @@
 <?php
+
 require_once 'auth/authenticate.php'; // Ensure the user is authenticated
 require_once 'db.php';
 ?>
@@ -19,14 +20,17 @@ require_once 'db.php';
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd -  Users Home </title>
+    <title> Nananomfarmsltd -  Users Home </title>
+<!-- Sweet Alert helper js  -->
+ <link rel="stylesheet" href="libs/sweetAlert2/sweetalert2.min.css">
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
         <!-- End links -->
     <meta name="description" content="" />
+ <!-- Sweet Alert helper js  -->
+ <script src="handler/alert-handler.js"></script>
 
-   
   </head>
 
   <body>
@@ -55,7 +59,7 @@ require_once 'db.php';
                 <h5 class="card-header"> Users </h5>
                 <div class="card-body">
                   <div class="col mb-2" >
-                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success" > Add User</button>
+                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success " title="Add User" > <i class='bx  bx-user-plus'  ></i> </button>
                   </div>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-bordered" id="dataTable" >
@@ -86,7 +90,7 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["role"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
     echo "<td>" . 
-         "<a href='edit_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary'>Edit</a> " .
+         "<a href='edit_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary '>Edit</a> " .
          "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
     "</td>"; 
     echo "</tr>";
@@ -230,6 +234,19 @@ if ($result && $result->num_rows > 0) {
 
     <!-- Core JS -->
 <?php require_once('partials/scripts.php'); ?>
+<script src="libs/sweetAlert2/sweetalert2.min.js"></script>
 
+    <?php
+    // Ensure alert is displayed after all JS is loaded
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (file_exists('handler/alert-handler.php')) {
+        include 'handler/alert-handler.php';
+        if (function_exists('displayAlert')) {
+            displayAlert();
+        }
+    }
+    ?>
     </body>
 </html>

@@ -6,7 +6,7 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+                  <a href="" target="_blank" class="footer-link fw-bolder">Nananom Farms Tech</a>
                 </div>
               </div>
             </footer>

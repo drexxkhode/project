@@ -19,14 +19,16 @@ require_once 'db.php';
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd - Dashboard </title>
-
+    <title> Nananomfarmsltd - Dashboard </title>
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
         <!-- End links -->
-    <meta name="description" content="" />
+         <!-- Sweet Alert helper js  -->
+ <link rel="stylesheet" href="libs/sweetAlert2/sweetalert2.min.css">
 
-   
+    <meta name="description" content="" />
+<!-- Sweet Alert helper js  -->
+ <script src="handler/alert-handler.js"></script>
   </head>
 
   <body>
@@ -376,5 +378,19 @@ require_once 'db.php';
 
     <!-- Core JS -->
 <?php require_once('partials/scripts.php'); ?>
+<script src="libs/sweetAlert2/sweetalert2.min.js"></script>
 
+    <?php
+    // Ensure alert is displayed after all JS is loaded
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (file_exists('handler/alert-handler.php')) {
+        include 'handler/alert-handler.php';
+        if (function_exists('displayAlert')) {
+            displayAlert();
+        }
+    }
+    ?>
     </body>
+</html>

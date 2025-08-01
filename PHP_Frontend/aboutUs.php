@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title> nanamonfarmsltd.com -About Us </title>
+  <title> nananomfarmsltd.com - About Us </title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <?php
@@ -37,7 +37,7 @@
         <a href="index.php" class="logo d-flex align-items-center">
           
            <img src="assets/img/logo.png" alt=""> 
-          <h3 class="sitename">Nanamon Farms Ltd.</h3>
+          <h3 class="sitename">Nananom Farms Ltd.</h3>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -77,7 +77,7 @@
             <div class="about-content ps-0 ps-lg-3">
               <h3>What We  Do</h3>
               <p class="fst-italic">
-          Nanamon Farms Ltd is a rising leader in Ghana's palm oil industry, dedicated to providing high-quality, organic palm oil products to consumers, wholesalers,
+          Nananom Farms Ltd is a rising leader in Ghana's palm oil industry, dedicated to providing high-quality, organic palm oil products to consumers, wholesalers,
           and retailers.We are committed to sustainable farming practices, customer satisfication, and modern business operations.
               </p>
               <ul>

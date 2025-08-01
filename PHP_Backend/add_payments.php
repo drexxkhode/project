@@ -1,5 +1,7 @@
 <?php
 require_once 'db.php';
+session_start();
+include 'handler/alert-handler.php';
 function isValidGhanaPhone($phone) {
   return preg_match('/^(02|03|05)[0-9]{8}$/', $phone);
 }
@@ -25,11 +27,15 @@ if (isset($_POST['submit'])) {
   }
 
   if (!isValidNationalID($nid)) {
-    die("❌ Invalid National ID format.");
+    setAlert('error','Format error', 'Invalid National ID format! ', 3000, false);
+    header("Location: index.php");
+    exit;
   }
 
   if (!isValidGhanaPhone($number)) {
-    die("❌ Invalid Client Phone Number.");
+    setAlert('error','Format error', 'Invalid client phone number!', 3000, false);
+    header("Location: index.php");
+    exit;
   }
 
   $final_payment_type = $payment_type;
@@ -40,17 +46,23 @@ if (isset($_POST['submit'])) {
 
   if ($payment_type === "MTN Mobile Money") {
     if (empty($mtn_number)) {
-      die("❌ Please enter the MTN Mobile Money number.");
+    setAlert('error','Empty field', 'Please enter the MTN Mobile Money number', 3000, false);
+    header("Location: index.php");
+    exit;
     }
     if (!isValidGhanaPhone($mtn_number)) {
-      die("❌ Invalid MTN MoMo number.");
+      setAlert('error','Input Error', 'Invalid MTN MoMo Number', 3000, false);
+    header("Location: index.php");
+    exit;
     }
     $save_momo = $mtn_number;
   }
 
   if ($payment_type === "Bank") {
     if (empty($bank_name)) {
-      die("❌ Please select a bank.");
+      setAlert('error','Input Error', 'Please select a bank', 3000, false);
+    header("Location: index.php");
+    exit;
     }
     $save_bank = $bank_name;
   }
@@ -60,9 +72,9 @@ if (isset($_POST['submit'])) {
   $stmt->bind_param("ssssssds", $name, $nid, $number, $final_payment_type, $save_bank, $save_momo,$amount, $dop);
 
   if ($stmt->execute()) {
-    echo "✅ Payment recorded successfully!";
+    setAlert('success','success!', 'Payment recorded successfully!', 3000, false);
     header("Location: index.php");
-    exit();
+    exit;
   } else {
     echo "❌ Database error: " . $stmt->error;
   }

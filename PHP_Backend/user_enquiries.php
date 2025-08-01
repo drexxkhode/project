@@ -19,14 +19,19 @@ require_once 'auth/authenticate.php'; // Ensure the user is authenticated
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title> Nanamonfarmsltd - Enquiries </title>
+    <title> Nananomfarmsltd - Enquiries </title>
 
     <!-- links -->
         <?php include_once('partials/links.php'); ?>
         <!-- End links -->
+         <!-- Sweet Alert helper js  -->
+ <link rel="stylesheet" href="libs/sweetAlert2/sweetalert2.min.css">
+
     <meta name="description" content="" />
 
-   
+   <!-- Sweet Alert helper js  -->
+ <script src="handler/alert-handler.js"></script>
+
   </head>
 
   <body>
@@ -89,11 +94,11 @@ if ($result && $result->num_rows > 0) {
     
     echo "<td>";
     if ($status !== 'replied') {
-      echo "<a class='btn btn-outline-primary' href='view_enquiries.php?id=" . urlencode($row["id"]) . "'>Reply</a> <br>",
-      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>";
+      echo "<a class='btn btn-outline-primary mb-1' href='view_enquiries.php?id=" . urlencode($row["id"]) . "'>Reply</a> <br>",
+      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger '>Delete</button>";
     } else {
       echo "<em>Replied</em> <br>" ,
-      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>";
+      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger mt-1'>Delete</button>";
     }
     echo "</td>";
     echo "</tr>";
@@ -142,6 +147,8 @@ else {
                           </form>
                         </div>
                       </div>
+
+                      
             </div>
             <!-- / Content -->
 
@@ -163,6 +170,20 @@ else {
 
     <!-- Core JS -->
 <?php require_once('partials/scripts.php'); ?>
+<script src="libs/sweetAlert2/sweetalert2.min.js"></script>
+
+    <?php
+    // Ensure alert is displayed after all JS is loaded
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (file_exists('handler/alert-handler.php')) {
+        include 'handler/alert-handler.php';
+        if (function_exists('displayAlert')) {
+            displayAlert();
+        }
+    }
+    ?>
 
     </body>
 </html>

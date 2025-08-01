@@ -1,4 +1,6 @@
 <?php
+session_start();
+include 'handler/alert-handler.php';
 require_once 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["save"])) {
@@ -10,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["save"])) {
 
     // Image validation
     if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-        http_response_code(400);
-        echo "Error uploading image.";
-        exit();
+        setAlert('error','Error', 'Error uploading image', 3000, false);
+       header("Location: manage_products.php");
+    exit;
     }
 
     $image = $_FILES['image']['tmp_name'];
@@ -24,15 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["save"])) {
 
 
     if (!in_array($imageType, $allowedTypes)) {
-        http_response_code(400);
-        echo "Only JPG, PNG, WEBP, AVIF and GIF images are allowed.";
-        exit();
+    setAlert('error','Image Error', 'Only JPG, PNG, WEBP, AVIF and GIF images are allowed.', 3000, false);
+    header("Location: manage_products.php");
+    exit;
+       
     }
 
     if ($imageSize > $maxSize) {
-        http_response_code(400);
-        echo "Image size must be less than 2MB.";
-        exit();
+  setAlert('error','Image size', 'Image size must be less than 2MB.', 3000, false);
+    header("Location: manage_products.php");
+    exit;
     }
 
     $imgContent = file_get_contents($image);
@@ -44,8 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["save"])) {
     $stmt->send_long_data(3, $imgContent);
 
     if ($stmt->execute()) {
-        header("Location: manage_products.php");
-        exit();
+        setAlert('success','Success', 'Product record saved successfully!', 3000, false);
+       header("Location: manage_products.php");
+    exit;
     } else {
         http_response_code(500);
         echo "Database Error: " . $stmt->error;
