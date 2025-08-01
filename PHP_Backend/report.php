@@ -360,7 +360,7 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
 
     // Delete button
-    echo "<td><button data-bs-target='#smallModal' data-bs-toggle='modal' data-id='{$row["id"]}' class='btn btn-outline-danger'>Delete</button></td>";
+    echo "<td><button data-bs-target='#smallModal' title='delete' data-bs-toggle='modal' data-id='{$row["id"]}' class='btn btn-outline-danger btn-sm'><i class='fa-solid fa-trash'></button></td>";
     echo "</tr>";
   }
 } else {

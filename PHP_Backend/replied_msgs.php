@@ -83,9 +83,9 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["clients_id"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
-     echo "<td>" . "<a class='btn btn-outline-primary' href='view_replied_msg.php?id=" . urlencode($row["id"]) . "'>view</a>" . "</td>";
+     echo "<td>" . "<a class='btn btn-outline-primary btn-sm'  href='view_replied_msg.php?id=" . urlencode($row["id"]) . "'><i class='fa-solid fa-message'></i></a>" . "</td>";
     echo "<td>" . htmlspecialchars($row["replied_at"]) . "</td>"; 
-    echo "<td>" . "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
+    echo "<td>" . "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger btn-sm'><i class='fa-solid fa-trash'></i></button>" .
     "</td>";
     echo "</tr>";
   }

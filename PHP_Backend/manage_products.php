@@ -60,7 +60,7 @@ require_once 'auth/authenticate.php'; // Ensure the product is authenticated
                 <h5 class="card-header"> Products </h5>
                 <div class="card-body">
                   <div class="col mb-2" >
-                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success" title="Add Product" > <i class='bx  bx-plus'  ></i>    </button>
+                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success btn-sm" title="Add Product" > <i class='bx  bx-plus'  ></i> </button>
                   </div>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-bordered" id="dataTable" >
@@ -94,8 +94,8 @@ echo "<td><img src='data:$imageType;base64,$imageData' alt='Product Image' width
 
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
     echo "<td>" . 
-         "<a href='edit_products.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary mb-1'>Edit</a> " .
-         "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
+         "<a href='edit_products.php?id=" . htmlspecialchars($row["id"]) . "' title='Edit' class='btn btn-outline-primary btn-sm mb-1'><i class='fa-solid fa-pen-to-square'></i></a> " .
+         "<button data-bs-target='#smallModal' title='delete' data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger btn-sm'><i class='fa-solid fa-trash'></i></button>" .
     "</td>"; 
     echo "</tr>";
   }

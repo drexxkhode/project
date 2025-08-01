@@ -89,7 +89,7 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["phone"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["service_type"]) . "</td>";
-    echo "<td>" . "<a class='btn btn-outline-primary' href='view_booking_msg.php?id=" . urlencode($row["id"]) . "'>view</a>" . "</td>";
+    echo "<td>" . "<a class='btn btn-sm btn-outline-primary' href='view_booking_msg.php?id=" . urlencode($row["id"]) . "'><i class='fa-solid fa-message'></i></a>" . "</td>";
     echo "<td>" . htmlspecialchars($row["booking_date"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["booking_time"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
@@ -97,11 +97,11 @@ if ($result && $result->num_rows > 0) {
     
     echo "<td>";
     if ($status !== 'replied') {
-      echo "<a class='btn btn-outline-primary mb-1' href='view_bookings.php?id=" . urlencode($row["id"]) . "'>Reply</a><br>",
-      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger '>Delete</button>";
+      echo "<a class='btn btn-outline-primary mb-1 btn-sm' href='view_bookings.php?id=" . urlencode($row["id"]) . "' title='Reply'><i class='fa-solid fa-reply'></i></a><br>",
+      "<button data-bs-target='#smallModal' title='Delete'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-sm btn-outline-danger '><i class='fa-solid fa-trash'></i></button>";
     } else {
-      echo "<em>Replied</em><br>",
-      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger mt-1'>Delete</button>";
+      echo "<button class='btn btn-sm btn-outline-primary' title='replied' ><i class='fa-solid fa-check-double'></i></button><br>",
+      "<button data-bs-target='#smallModal' title='Delete'  data-bs-toggle='modal' data-id=' {$row["id"]} '   class='btn btn-sm btn-outline-danger mt-1'><i class='fa-solid fa-trash'></i></button>";
     }
     echo "</td>";
     echo "</tr>";

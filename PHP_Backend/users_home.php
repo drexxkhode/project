@@ -59,7 +59,7 @@ require_once 'db.php';
                 <h5 class="card-header"> Users </h5>
                 <div class="card-body">
                   <div class="col mb-2" >
-                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success " title="Add User" > <i class='bx  bx-user-plus'  ></i> </button>
+                    <button data-bs-target="#basicModal"  data-bs-toggle="modal"  class="btn btn-outline-success btn-sm " title="Add User" > <i class='bx  bx-user-plus'  ></i> </button>
                   </div>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-bordered" id="dataTable" >
@@ -90,8 +90,8 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["role"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>"; 
     echo "<td>" . 
-         "<a href='edit_user.php?id=" . htmlspecialchars($row["id"]) . "' class='btn btn-outline-primary '>Edit</a> " .
-         "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger'>Delete</button>" .
+         "<a href='edit_user.php?id=" . htmlspecialchars($row["id"]) . "' title='Edit'  class='btn btn-outline-primary btn-sm '><i class='fa-solid fa-user-pen'></i></a> " .
+         "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} ' title='delete' class='btn btn-outline-danger btn-sm'><i class='fa-solid fa-trash'></i></button>" .
     "</td>"; 
     echo "</tr>";
   }

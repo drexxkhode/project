@@ -88,24 +88,24 @@ if ($result && $result->num_rows > 0) {
     echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["subject"]) . "</td>";
-    echo "<td>" . "<a class='btn btn-outline-primary' href='view_enquirie_msg.php?id=" . urlencode($row["id"]) . "'>view</a>" . "</td>";
+    echo "<td>" . "<a class='btn btn-outline-primary btn-sm' href='view_enquirie_msg.php?id=" . urlencode($row["id"]) . "'><i class='fa-solid fa-message'></i></a>" . "</td>";
     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
     echo "<td>" . htmlspecialchars($status) . "</td>";
     
     echo "<td>";
     if ($status !== 'replied') {
-      echo "<a class='btn btn-outline-primary mb-1' href='view_enquiries.php?id=" . urlencode($row["id"]) . "'>Reply</a> <br>",
-      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger '>Delete</button>";
+      echo "<a class='btn btn-sm btn-outline-primary mb-1' title='Reply' href='view_enquiries.php?id=" . urlencode($row["id"]) . "'><i class='fa-solid fa-reply'></i></a> <br>",
+      "<button data-bs-target='#smallModal' title='delete' data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger btn-sm '><i class='fa-solid fa-trash'></i></button>";
     } else {
-      echo "<em>Replied</em> <br>" ,
-      "<button data-bs-target='#smallModal'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger mt-1'>Delete</button>";
+      echo "<button class='btn btn-sm btn-outline-primary' title='replied' ><i class='fa-solid fa-check-double'></i></button> <br>" ,
+      "<button data-bs-target='#smallModal' title='Delete'  data-bs-toggle='modal' data-id=' {$row["id"]} '  class='btn btn-outline-danger btn-sm mt-1'><i class='fa-solid fa-trash'></i></button>";
     }
     echo "</td>";
     echo "</tr>";
   } 
   }
 else {
-  echo '<tr><td colspan="6" class="text-center">No records found.</td></tr>';
+  echo '<tr><td colspan="8" class="text-center">No records found.</td></tr>';
 }
 ?>
 

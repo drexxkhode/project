@@ -57,19 +57,19 @@ modals.forEach(modal => {
       {
         extend: 'csvHtml5',
         text: '<i class="bx bx-file"></i>',
-        className: 'btn btn-outline-primary me-1',
+        className: 'btn btn-sm btn-outline-primary me-1',
         titleAttr: 'Export CSV' // Tooltip on hover
       },
       {
         extend: 'excelHtml5',
         text: '<i class="bx bx-spreadsheet"></i>',
-        className: 'btn btn-outline-success me-1',
+        className: 'btn btn-sm btn-outline-success me-1',
         titleAttr: 'Export Excel'
       },
       {
         extend: 'print',
         text: '<i class="bx bx-printer"></i>',
-        className: 'btn btn-outline-secondary',
+        className: 'btn btn-sm btn-outline-secondary',
         titleAttr: 'Print'
       }
     ],
