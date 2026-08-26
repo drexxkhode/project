@@ -16,16 +16,37 @@ A PHP and MySQL web application for Nananom Farms Ltd. It includes a public-faci
 - MySQL or MariaDB
 - Apache (WAMP/XAMPP/LAMP are suitable)
 - An SMTP account for customer reply emails
+- [Composer](https://getcomposer.org/) for the PHP dependencies
 
 ## Local setup
 
 1. Place the repository in your web-server directory (for example, `C:\\wamp64\\www\\project`).
 2. Start Apache and MySQL.
 3. Import `sql/nananomfarms.sql` with phpMyAdmin or the MySQL client. This creates the `nananomfarms` database.
-4. Update the database connection in `PHP_Backend/db.php` if your local MySQL host, username, password, or database name differs.
-5. Configure SMTP credentials in `bookings_mail.php` and `equiries_mail.php`. Do not commit real passwords or app passwords to source control.
+4. Run `composer install` in the project root to install `vlucas/phpdotenv`.
+5. Create a root-level `.env` file and set the required database and mail values listed below.
 6. Open the public site at `http://localhost/project/PHP_Frontend/`.
 7. Open the dashboard at `http://localhost/project/PHP_Backend/login.php`.
+
+## Environment configuration
+
+The application loads `.env` from the project root through `PHP_Backend/db.php`. Add these values to your local `.env` file:
+
+```dotenv
+DB_HOST=localhost
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+DB_NAME=nananomfarms
+
+MAIL_HOST=your_smtp_host
+MAIL_PORT=465
+MAIL_USERNAME=your_smtp_username
+MAIL_PASSWORD=your_smtp_password
+MAIL_FROM=sender@example.com
+MAIL_FROM_NAME="Nananom Farms Ltd."
+```
+
+`DB_*` variables configure the MySQL connection. `MAIL_*` variables configure PHPMailer for booking and enquiry replies. The `.env` file is ignored by Git; never commit real credentials.
 
 ## Main capabilities
 
@@ -37,4 +58,4 @@ A PHP and MySQL web application for Nananom Farms Ltd. It includes a public-faci
 
 ## Security note
 
-The repository currently contains SMTP configuration in the mail-handler files. Replace any existing credentials, keep secrets outside version control, and use environment-based configuration before deploying the application.
+Keep production credentials only in the deployment environment or its `.env` file. Use least-privilege database and SMTP accounts, and rotate any credentials that were previously committed.
