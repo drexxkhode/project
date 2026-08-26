@@ -26,19 +26,24 @@ $query->bind_param("isss", $id, $email,$name, $message);
 $query->execute();
 
 // SMTP settings
-$mail = new PHPMailer();
-$mail->IsSMTP();
+$mail = new PHPMailer(true);
+
+$mail->isSMTP();
 $mail->SMTPAuth = true;
-$mail->SMTPSecure = 'ssl';
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
-$mail->IsHTML(true);
-$mail->Username = "nanamonfarmsltd@gmail.com";
-$mail->Password = "nqwqwtnoasfqtxpc";
-$mail->From ="nanamonfarmsltd@gmail.com";
-$mail->FromName = "Nananom Farms Ltd.";
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
+$mail->Host = $_ENV['MAIL_HOST'];
+$mail->Port = $_ENV['MAIL_PORT'];
 
+$mail->Username = $_ENV['MAIL_USERNAME'];
+$mail->Password = $_ENV['MAIL_PASSWORD'];
+
+$mail->setFrom(
+    $_ENV['MAIL_FROM'],
+    $_ENV['MAIL_FROM_NAME']
+);
+
+$mail->isHTML(true);
 $mail->Subject = "Reply from Nananom Farms Ltd.";
 $mail->Body = "
  <br/> <br/>
